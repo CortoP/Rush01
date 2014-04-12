@@ -1,0 +1,57 @@
+#body
+{
+width:100%;
+background-image: radial-gradient(white, black);
+}
+#container
+{
+position:absolute;
+background-color: #D0D0D0;
+border-radius: 15px;
+width: 50%;
+height:34%;
+top:33%;
+left:25%;
+}
+#create_account
+{
+position:absolute;
+background-color: #303030;
+border-radius: 15px;
+width: 60%;
+height: 60px;
+margin-left: 20%;
+margin-top: 10%;
+font-family: Verdana;
+text-align: center;
+line-height: 3.5em;
+color:#E0E0E0;
+}
+#Connect
+{
+position: absolute;
+background-color: #303030;
+border-radius: 15px;
+width: 60%;
+height: 60px;
+margin-left: 20%;
+margin-top: 21%;
+font-family: Verdana;
+text-align: center;
+line-height: 3.5em;
+color:#E0E0E0;
+}
+#Play
+{
+position: absolute;
+background-color: #303030;
+border-radius: 15px;
+width: 60%;
+height: 60px;
+margin-left: 20%;
+margin-top: 32%;
+font-family: Verdana;
+text-align: center;
+line-height: 3.5em;
+color:#E0E0E0;
+}

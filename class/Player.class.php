@@ -36,7 +36,9 @@ abstract class Player
 		if (isset($this->_ships[$id]))
 		{
 			if ($this->_ship[$id]->getState() != 'dead')
-		   	   return ($this->_ships[$id]);
+		   	    return ($this->_ships[$id]);
+			else
+				return 1;
 		}
 		else
 			return (-1);
