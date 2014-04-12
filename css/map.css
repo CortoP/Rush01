@@ -40,8 +40,12 @@
 }
 
 .info{
+    opacity: 0.6;
+    background-color: white;
     position: absolute;
     display: none;
+    border-radius: 30px;
+    padding: 0px 10px;
 }
 
 .object:hover .info{
