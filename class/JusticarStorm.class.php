@@ -61,6 +61,23 @@ class JusticarStorm extends Ship
 		}
 	}
 
+	public function increaseShootingNb($PP)
+	{
+		if ($PP > $this->_PP)
+			print('Not enough PP' . PHP_EOL);
+		else
+		{
+			$this->_PP -= $PP;
+			while ($PP > 0)
+			{
+				if ($this->roll() >= 4)
+					$total++;
+				$PP--;
+			}
+			$this-> += $total;
+		}
+	}
+
 	public function __toString()
 	{
 		return 'Justicar Storm';
