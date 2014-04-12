@@ -66,7 +66,7 @@ abstract class Player
 
 	function setShip($ship)
 	{
-		if (function_exists('$ship->am_i_alive'))
+		if (get_parent_class($ship) == 'Ship')
 		{
 			if (isset($this->_ships[0]))
 			   array_push($this->_ships, $ship);
@@ -74,7 +74,7 @@ abstract class Player
 			   $this->_ships = array($ship);
 			return (0);
 		}
-		return (1);
+		return (-1);
 	}
 }
 

@@ -18,7 +18,7 @@ class SpaceMarin extends Player
 
 	function __toString()
 	{
-		return 'SpaceMarin: ( Id: ' . $this->_id . ' Name: ' . $this->_name . ' )';
+		return 'SpaceMarin: ( Id: ' . $this->_id . ' Name: ' . $this->_name . ' Ships:' . $this->_ships. ' )';
 	}
 }
 
