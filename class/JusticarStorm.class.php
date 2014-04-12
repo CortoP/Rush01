@@ -4,7 +4,7 @@ require_once('Ship.class.php');
 require_once('Blaster.class.php');
 require_once('Dice.trait.php');
 
-class JusticarStorm extends Ship 
+class JusticarStorm extends Ship
 {
 	use Dice;
 	private static $name = 'Justicar Storm';
@@ -12,14 +12,18 @@ class JusticarStorm extends Ship
 	private static $PP = 10;
 	private static $speed = 16;
 	private static $shield = 0;
+	private static $long = 5;
+	private static $wide = 1;
 
-	public function __construct() 
+	public function __construct()
 	{
 		$this->setName(self::$name);
-		$this->setPV(self::$PV); 
+		$this->setPV(self::$PV);
 		$this->setPP(self::$PP);
-		$this->setSpeed(self::$speed); 
+		$this->setSpeed(self::$speed);
 		$this->setShield(self::$shield);
+		$this->setLong(self::$long);
+		$this->setWide(self::$wide);
 		$this->setWeapons(new Blaster());
 		return;
 	}
@@ -27,7 +31,7 @@ class JusticarStorm extends Ship
 	public function init()
 	{
 		$this->setPP(self::$PP);
-		$this->setSpeed(self::$speed); 
+		$this->setSpeed(self::$speed);
 		$this->setShield(self::$shield);
 		return;
 	}
