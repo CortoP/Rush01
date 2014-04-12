@@ -2,11 +2,17 @@
 
 abstract class Weapon
 {
+	protected $_name;
 	protected $_charges;
 	protected $_small_range;
 	protected $_medium_range;
 	protected $_long_range;
 	protected $_actionField;
+
+	function getName()
+	{
+		return $this->_name;
+	}
 
 	function getCharges()
 	{
@@ -26,6 +32,11 @@ abstract class Weapon
 	function getLongRange()
 	{
 		return $this->_long_range;
+	}
+
+	function setName($name)
+	{
+		$this->_name = $name;
 	}
 
 	function setCharges($charges)
