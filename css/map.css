@@ -1,0 +1,49 @@
+#map{
+    width: 100%;
+    height: auto;
+}
+
+.line{
+
+}
+
+.square{
+    min-width: 5px;
+    width: 0.666%;
+    height: 1%;
+    box-shadow: inset 0 0 1px #000000;
+    display: inline-block;
+}
+
+.empty{
+    background-color: #b9b9b9;
+}
+
+.object{
+    background-color: pink;
+}
+
+.touched{
+    background-color: red;
+}
+
+.Destroyer .Imperator{
+    background-color: yellow;   
+}
+
+.Asteroide{
+    background-color: green;
+}
+
+.station{
+    background-color: blue;
+}
+
+.info{
+    position: absolute;
+    display: none;
+}
+
+.object:hover .info{
+    display: block;
+} 
