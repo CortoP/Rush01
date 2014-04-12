@@ -1,0 +1,18 @@
+---------------------------------------->
+Weapon Class Documentation:
+
+This is the base abstract class for all
+weapons. It contains four attributes with
+their respectives get and set methods
+which are:
+
+- _charges : The number of charges needed
+to trigger the weapon.
+- _small_range : The smallest range of the
+weapon.
+- _medium_range : The medium range of the
+weapon.
+- _long_range : The longest range of the
+weapon.
+
+<----------------------------------------

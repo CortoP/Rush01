@@ -2,55 +2,61 @@
 
 abstract class Weapon
 {
-	protected $_loads;
-	protected $_small_scope;
-	protected $_medium_scope;
-	protected $_large_scope;
-	Protected $_actionField;
+	protected $_charges;
+	protected $_small_range;
+	protected $_medium_range;
+	protected $_long_range;
+	protected $_actionField;
 
-	function getLoads()
+	function getCharges()
 	{
-		return $this->_loads;
+		return $this->_charges;
 	}
 
-	function getMediumScope()
+	function getMediumRange()
 	{
-		return $this->_medium_scope;
+		return $this->_medium_range;
 	}
 
-	function getSmallScope()
+	function getSmallRange()
 	{
-		return $this->_small_scope;
+		return $this->_small_range;
 	}
 
-	function getLargeScope()
+	function getLongRange()
 	{
-		return $this->_large_scope;
+		return $this->_long_range;
 	}
 
-	function setLoads($loads)
+	function setCharges($charges)
 	{
-		$this->_loads = $loads;
+		$this->_charges = $charges;
 	}
 
-	function setSmallScope($small_scoppe)
+	function setSmallRange($small_range)
 	{
-		$this->_small_scope = $small_scoppe;
+		$this->_small_range = $small_range;
 	}
 
-	function setMediumScope($medium_scope)
+	function setMediumRange($medium_range)
 	{
-		$this->_medium_scope = $medium_scope;
+		$this->_medium_range = $medium_range;
 	}
 
-	function setLargeScope($large_scope)
+	function setLongRange($long_range)
 	{
-		$this->_large_scope = $large_scope;
+		$this->_long_range = $long_range;
 	}
 
-	function addLoads($loads)
+	function addCharges($charges)
 	{
-		$this->_loads += $loads;
+		$this->_charges += $charges;
+	}
+
+	public static function doc() {
+		if (file_exists("doc/Weapon.doc.txt"))
+			return (file_get_contents("doc/Weapon.doc.txt"));
+		return ("File not found : Weapon.doc.txt");
 	}
 }
 

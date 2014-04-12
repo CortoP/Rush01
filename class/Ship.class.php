@@ -118,7 +118,12 @@ abstract class Ship
 	{
 		$this->_shield -= $PP;
 	}
-
+	
+	public static function doc() {
+		if (file_exists("doc/Ship.doc.txt"))
+			return (file_get_contents("doc/Ship.doc.txt"));
+		return ("File not found : Ship.doc.txt");
+	}
 }
 
 ?>
