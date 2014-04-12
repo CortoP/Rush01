@@ -57,24 +57,27 @@ class JusticarStorm extends Ship
 				$PP--;
 			}
 			$this->_speed += $total;
-			print('Speed has been increased by ' . $PP . PHP_EOL);
+			print('Speed has been increased by ' . $total . PHP_EOL);
 		}
 	}
 
-	public function increaseShootingNb($PP)
+	public function increaseCharges($PP)
 	{
 		if ($PP > $this->_PP)
 			print('Not enough PP' . PHP_EOL);
 		else
 		{
 			$this->_PP -= $PP;
+			$ammos = 0;
 			while ($PP > 0)
 			{
 				if ($this->roll() >= 4)
-					$total++;
+					$ammos++;
 				$PP--;
 			}
-			$this-> += $total;
+			$weap = $this->_weapons;
+			$weap->addAmmos($ammos);
+			print('Ammos has been increased by ' . $ammos . PHP_EOL);
 		}
 	}
 

@@ -5,7 +5,7 @@ require_once('Weapon.class.php');
 class Blaster extends Weapon
 {
 	private static $name = 'Blaster';
-	private static $charges = 0;
+	private static $ammos = 0;
 	private static $small_range = 20;
 	private static $medium_range = 40;
 	private static $long_range = 60;
@@ -13,10 +13,16 @@ class Blaster extends Weapon
 	public function __construct()
 	{
 		$this->setName(self::$name);
-		$this->setCharges(self::$charges);
+		$this->setAmmos(self::$ammos);
 		$this->setSmallRange(self::$small_range);
 		$this->setMediumRange(self::$medium_range);
 		$this->setLongRange(self::$long_range);
+		return;
+	}
+
+	public function init()
+	{
+		$this->setAmmos(self::$ammos);
 		return;
 	}
 	

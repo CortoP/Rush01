@@ -3,7 +3,7 @@
 abstract class Weapon
 {
 	protected $_name;
-	protected $_charges;
+	protected $_ammos;
 	protected $_small_range;
 	protected $_medium_range;
 	protected $_long_range;
@@ -14,9 +14,9 @@ abstract class Weapon
 		return $this->_name;
 	}
 
-	function getCharges()
+	function getAmmos()
 	{
-		return $this->_charges;
+		return $this->_ammos;
 	}
 
 	function getMediumRange()
@@ -39,9 +39,9 @@ abstract class Weapon
 		$this->_name = $name;
 	}
 
-	function setCharges($charges)
+	function setAmmos($ammos)
 	{
-		$this->_charges = $charges;
+		$this->_ammos = $ammos;
 	}
 
 	function setSmallRange($small_range)
@@ -59,9 +59,10 @@ abstract class Weapon
 		$this->_long_range = $long_range;
 	}
 
-	function addCharges($charges)
+	function addAmmos($ammos)
 	{
-		$this->_charges += $charges;
+		$this->_ammos += $ammos;
+		print('Ammos added' . PHP_EOL);
 	}
 
 	public static function doc() {
