@@ -3,12 +3,15 @@ abstract class Ship
 {
 	protected $_name;
 	protected $_PV;
-	protected $_span;
 	protected $_PP;
 	protected $_speed;
 	protected $_shield;
 	protected $_weapons;
-	protected $_position;
+	protected $_x;
+	protected $_y;
+	protected $_orientation;
+	protected $_long;
+	protected $_wide;
 
 	function am_i_alive()
 	{
@@ -59,9 +62,29 @@ abstract class Ship
 		return $this->_weapons;
 	}
 
-	function getPosition()
+	function getX()
 	{
-		return $this->_position;
+		return $this->_x;
+	}
+
+	function getY()
+	{
+		return $this->_y;
+	}
+
+	function getOrientation()
+	{
+		return $this->_orientation;
+	}
+
+	function getLong()
+	{
+		return $this->_long;
+	}
+
+	function getWide()
+	{
+		return $this->_wide;
 	}
 
 	function setName($name)
@@ -72,11 +95,6 @@ abstract class Ship
 	function setPV($PV)
 	{
 		$this->_PV = $PV;
-	}
-
-	function setSpan($span)
-	{
-		$this->_span = $span;
 	}
 
 	function setPP($PP)
@@ -99,24 +117,29 @@ abstract class Ship
 		$this->_weapons = $weapons;
 	}
 
-	function setPosition(array $coord)
+	function setX($x)
 	{
-		$this->_position = array('x' => $coord['x'], 'y' => $coord['y']);
+		$this->_x = $x;
 	}
 
-	function subPP($PP)
+	function setY($y)
 	{
-		$this->_PP -= $PP;
+		$this->_y = $y;
 	}
 
-	function addShield($PP)
+	function setOrientation($orientation)
 	{
-		$this->_shield += $PP;
+		$this->_orientation = $orientation;
 	}
 
-	function subShield($PP)
+	function setLong($long)
 	{
-		$this->_shield -= $PP;
+		$this->_long = $long;
+	}
+
+	function setWide($wide)
+	{
+		$this->_wide = $wide;
 	}
 	
 	public static function doc()
