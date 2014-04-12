@@ -4,7 +4,7 @@ require_once('Player.class.php');
 
 class SpaceMarin extends Player
 {
-	static protected $color = 'blue';
+	static protected $_color = 'blue';
 	static protected $_marins = 1;
 	protected $_marinId;
 

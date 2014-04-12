@@ -1,27 +1,33 @@
 <- Player Class -------------------------------------------------
 
 ==== Attributes ====
-protected name
-protected id
-protected ships
-protected playerId
+
+protected name.
+
+protected id.
+
+protected ships.
+
+protected playerId.
+
 
 ==== Functions ====
-getName
 
-getId
+getName.
 
-getShip($id) ==> Need a ship id
+getId.
+
+getShip($id) ==> Need a ship id.
 
 setName($name) ==> set the $name argument in the name attribute
-and returns 0 if $name is a string and if is not empty. Otherwise,
-return -1;
+and returns 0 if $name is a string and if is not empty. Otherwise
+return -1.
 
 setId($id) ==> set the $id in the id attribute and return 0 if
-$id is numeric and if is between 1 and 4. Otherwise, returns -1;
+$id is numeric and if is between 1 and 4. Otherwise, returns -1.
 
 setShip($ship) ==> set a ship in the $ships array attribute. It
 creates the array if it not exists. It returns 0 if the attribute
- is a ship. Otherwise, it returns -1;
+ is a ship. Otherwise, it returns -1.
 
 <------------------------------------------------ Player Class ->

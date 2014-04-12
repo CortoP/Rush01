@@ -1,0 +1,16 @@
+<- SpaceMarin Class ---------------------------------------------
+
+This class is a sub-class of Player.
+
+
+==== Attributes ====
+
+protected color : string contains the color name initialized at
+blue.
+
+protected marins : It is the number of instance class marins
+created.
+
+protected marinId.
+
+--------------------------------------------- SpaceMarin Class ->
