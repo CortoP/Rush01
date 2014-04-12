@@ -10,7 +10,7 @@ class Blaster extends Weapon
 	static private $medium_range = 40;
 	static private $long_range = 60;
 
-	function __construct()
+	public function __construct()
 	{
 		$this->setName(self::$name);
 		$this->setCharges(self::$charges);
@@ -20,7 +20,7 @@ class Blaster extends Weapon
 		return;
 	}
 	
-	function __toString()
+	public function __toString()
 	{
 		return 'Blaster';
 	}

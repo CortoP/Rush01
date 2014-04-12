@@ -10,7 +10,6 @@ class JusticarStorm extends Ship
 	static private $PP = 10;
 	static private $speed = 16;
 	static private $shield = 0;
-//	static private $weapons = new Blaster();
 
 	public function __construct() 
 	{
@@ -21,6 +20,19 @@ class JusticarStorm extends Ship
 		$this->setShield(self::$shield);
 		$this->setWeapons(new Blaster());
 		return;
+	}
+
+	public function init()
+	{
+		$this->setPP(self::$PP);
+		$this->setSpeed(self::$speed); 
+		$this->setShield(self::$shield);
+		return;
+	}
+
+	public function __toString()
+	{
+		return 'Justicar Storm';
 	}
 
 	public static function doc()
