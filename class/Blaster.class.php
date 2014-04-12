@@ -4,11 +4,11 @@ require_once('Weapon.class.php');
 
 class Blaster extends Weapon
 {
-	static private $name = 'Blaster';
-	static private $charges = 0;
-	static private $small_range = 20;
-	static private $medium_range = 40;
-	static private $long_range = 60;
+	private static $name = 'Blaster';
+	private static $charges = 0;
+	private static $small_range = 20;
+	private static $medium_range = 40;
+	private static $long_range = 60;
 
 	public function __construct()
 	{

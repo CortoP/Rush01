@@ -2,14 +2,16 @@
 
 require_once('Ship.class.php');
 require_once('Blaster.class.php');
+require_once('Dice.trait.php');
 
 class JusticarStorm extends Ship 
 {
-	static private $name = 'Justicar Storm';
-	static private $PV = 5;
-	static private $PP = 10;
-	static private $speed = 16;
-	static private $shield = 0;
+	use Dice;
+	private static $name = 'Justicar Storm';
+	private static $PV = 5;
+	private static $PP = 10;
+	private static $speed = 16;
+	private static $shield = 0;
 
 	public function __construct() 
 	{
@@ -28,6 +30,35 @@ class JusticarStorm extends Ship
 		$this->setSpeed(self::$speed); 
 		$this->setShield(self::$shield);
 		return;
+	}
+
+	public function increaseShield($PP)
+	{
+		if ($PP > $this->_PP)
+			print('Not enough PP' . PHP_EOL);
+		else
+		{
+			$this->_shield += $PP;
+			$this->_PP -= $PP;
+			print('Shield has been increased by ' . $PP . PHP_EOL);
+		}
+	}
+
+	public function increaseSpeed($PP)
+	{
+		if ($PP > $this->_PP)
+			print('Not enough PP' . PHP_EOL);
+		else
+		{
+			$this->_PP -= $PP;
+			while ($PP > 0)
+			{
+				$total += $this->roll();
+				$PP--;
+			}
+			$this->_speed += $total;
+			print('Speed has been increased by ' . $PP . PHP_EOL);
+		}
 	}
 
 	public function __toString()
