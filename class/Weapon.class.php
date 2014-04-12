@@ -62,7 +62,6 @@ abstract class Weapon
 	function addAmmos($ammos)
 	{
 		$this->_ammos += $ammos;
-		print('Ammos added' . PHP_EOL);
 	}
 
 	public static function doc() {

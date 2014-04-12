@@ -32,55 +32,6 @@ class JusticarStorm extends Ship
 		return;
 	}
 
-	public function increaseShield($PP)
-	{
-		if ($PP > $this->_PP)
-			print('Not enough PP' . PHP_EOL);
-		else
-		{
-			$this->_shield += $PP;
-			$this->_PP -= $PP;
-			print('Shield has been increased by ' . $PP . PHP_EOL);
-		}
-	}
-
-	public function increaseSpeed($PP)
-	{
-		if ($PP > $this->_PP)
-			print('Not enough PP' . PHP_EOL);
-		else
-		{
-			$this->_PP -= $PP;
-			while ($PP > 0)
-			{
-				$total += $this->roll();
-				$PP--;
-			}
-			$this->_speed += $total;
-			print('Speed has been increased by ' . $total . PHP_EOL);
-		}
-	}
-
-	public function increaseCharges($PP)
-	{
-		if ($PP > $this->_PP)
-			print('Not enough PP' . PHP_EOL);
-		else
-		{
-			$this->_PP -= $PP;
-			$ammos = 0;
-			while ($PP > 0)
-			{
-				if ($this->roll() >= 4)
-					$ammos++;
-				$PP--;
-			}
-			$weap = $this->_weapons;
-			$weap->addAmmos($ammos);
-			print('Ammos has been increased by ' . $ammos . PHP_EOL);
-		}
-	}
-
 	public function __toString()
 	{
 		return 'Justicar Storm';
