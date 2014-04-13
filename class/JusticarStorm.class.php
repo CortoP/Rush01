@@ -23,7 +23,6 @@ class JusticarStorm extends Ship
 		$this->setLong(self::$long);
 		$this->setWide(self::$wide);
 		$this->setWeapons(new Blaster());
-		print('Justicar Storm at your command, sir' . PHP_EOL);
 		return;
 	}
 
