@@ -76,6 +76,40 @@ Class Map{
 		}
 	}
 
+	public function moveShip($id, $s)
+	{
+		$ship = $this->_id[$id];
+		$this->_supObj($ship, $ship->getY(), $ship->getX());
+		$this->_addObj($ship, $ship->getY(), $ship->getX() + $s);
+		$ship->setX($ship->getX() + $s);
+	}
+private function _supObj($obj, $row, $col)
+	{
+		$this->_id[++$this->_count] = $obj;
+		$long = $obj->getLong();
+		$wide = $obj->getWide();
+		if ($obj->getOrientation() % 2 == 0)
+		{
+			$tmp = $long;
+			$long = $wide;
+			$wide = $tmp;
+		}
+		$row -= $wide / 2;
+		$col -= $long / 2;
+		$wide = $wide + $row;
+		$long = $long + $col;
+		$i = $col;
+		for ($row; $row < $wide; $row++)
+		{
+			$col = $i;
+			for ($col; $col < $long; $col++)
+			{
+				$this->_map[$row][$col] = 0;
+			}
+		}
+
+	}
+
 	private function _addObj($obj, $row, $col)
 	{
 		$this->_id[++$this->_count] = $obj;
@@ -258,7 +292,7 @@ Class Map{
 <h3 class="name"><?PHP echo $obj->getName()?></h3>
 <form action="move.php?" method="post">
   Speed <input type='number' name="speed" value='0' min='0' max='<?PHP echo $obj->getSpeed()?>'  required/><br/>
-	<input type="hidden" name='id' value='<?PHP echo $id % $this->_nbP ;?>'>
+	<input type="hidden" name='id' value='<?PHP echo $id ;?>'>
 	<input type='submit' name='submit' value='Valid'/>
 	<input type='submit' name='submit' value='TurnRight'/>
 	<input type='submit' name='submit' value='TurnLeft'/>
