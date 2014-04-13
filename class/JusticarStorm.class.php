@@ -41,6 +41,7 @@ class JusticarStorm extends Ship
 		$this->setPP(self::$PP);
 		$this->setSpeed(self::$speed);
 		$this->setShield(self::$shield);
+		$this->getWeapons()->init();
 		print('PP reinitialized to default value : ' . self::$PP. PHP_EOL);
 		print('Speed reinitialized to default value : ' . self::$speed . PHP_EOL);
 		print('Shield reinitialized to default value : ' . self::$shield . PHP_EOL);
