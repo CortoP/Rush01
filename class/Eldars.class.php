@@ -4,7 +4,7 @@ require_once('Player.class.php');
 
 class Eldars extends Player
 {
-	static protected $_color = 'pink';
+	static protected $_color = 'green';
 	static protected $_eldars = 1;
 	protected $_eldarsId;
 
