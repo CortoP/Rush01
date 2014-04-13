@@ -30,12 +30,16 @@ abstract class Ship
 		return $this->_name;
 	}
 
+<<<<<<< HEAD
+	function getPP()
+=======
 	public function getPV()
 	{
 		return $this->_PV;
 	}
 
 	public function getPP()
+>>>>>>> 8cc8dda299d457eda54425f454d2d4066a5420fe
 	{
 		return $this->_PP;
 	}
@@ -164,7 +168,7 @@ abstract class Ship
 		print($this->_name . ' has been hit for ' . $damage . PHP_EOL);
 		return ($this->amIAlive());
 	}
-	
+
 	public function increaseShield($PP)
 	{
 		if ($PP > $this->_PP)
