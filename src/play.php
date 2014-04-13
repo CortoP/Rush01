@@ -23,9 +23,15 @@ else
 		for ($i = 1; $i <= $game->getNbrP(); $i++)
 		{
 ?>
+	<div class="choosePlayer">
 	<label for=<?PHP echo "'P$i'> Player $i"?></label>
 	<input type='text' name='<?PHP echo "P$i' id='P$i"?>' required/><br/>
-	<span>no password yet, ajouter choix de faction</span><br/>
+	<span>no password il faut creer un joueur pour qu'il soit jouable</span><br/>
+	<select name="faction<?PHP echo $i;?>">
+		Choose your faction
+		<option value='ImperialGuard'>Imperial Guard</option>
+		<option value='SpaceMarin'>SpaceMarin</option>
+	</select></div>
 <?PHP
 		}
 		echo '<input type="submit" name="action" value="OK"/>';

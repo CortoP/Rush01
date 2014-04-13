@@ -2,6 +2,8 @@
 
 require_once('Dice.trait.php');
 require_once('Map.class.php');
+require_once('ImperialGuard.class.php');
+require_once('SpaceMarin.class.php');
 class Game
 {
 	use Dice;
