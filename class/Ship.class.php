@@ -16,8 +16,14 @@ abstract class Ship
 	protected $_orientation;
 	protected $_long;
 	protected $_wide;
+	protected $_state;
 
 	/* ---------- Getters ----------*/
+
+	public function getState()
+	{
+		return $this->_state;
+	}
 
 	public function getName()
 	{
@@ -75,6 +81,11 @@ abstract class Ship
 	}
 
 	/* ---------- Setters ----------*/
+
+	public function setState($state)
+	{
+		$this->_state = $state;
+	}
 
 	public function setName($name)
 	{

@@ -11,7 +11,7 @@ $game = unserialize($s);
 ?>
     <div id="main">
     <div id="playa"></div>
-	<div id="board"><?PHP echo $game;   $game->map->htmlize()?></div>
+	<div id="board"><?PHP $game->map->htmlize()?></div>
     <div id="chat"></div>
     </div>
     </body>
