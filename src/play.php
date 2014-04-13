@@ -2,7 +2,7 @@
 <LINK rel="stylesheet" href="../css/index.css" type="text/css" />
 <LINK rel="stylesheet" href="../css/map.css" type="text/css" />
 <center>
-	<a href="/index.html"> <img src="../Title_Warhammer.png"> </a>
+	<a href="/index.php"> <img src="../Title_Warhammer.png"> </a>
 </center>
 </header>
 <body id='body'>
