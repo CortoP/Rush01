@@ -7,7 +7,6 @@ abstract class Weapon
 	protected $_small_range;
 	protected $_medium_range;
 	protected $_long_range;
-	protected $_actionField;
 
 	/* ---------- Getters ----------*/
 
@@ -65,7 +64,7 @@ abstract class Weapon
 
 	/* ---------- Other methods ---------- */
 
-	function addAmmos($ammos)
+	public function addAmmos($ammos)
 	{
 		$this->_ammos += $ammos;
 	}

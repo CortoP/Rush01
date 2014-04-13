@@ -138,7 +138,7 @@ abstract class Ship
 
 	/* ---------- Other methods ---------- */
 
-	function am_i_alive()
+	function amIAlive()
 	{
 		if ($this->_PV > 0)
 		{
@@ -152,11 +152,11 @@ abstract class Ship
 		}
 	}
 
-	function sub_PV($damage)
+	function subPV($damage)
 	{
 		$this->_PV -= $damage;
 		print($this->_name . ' has been hit for ' . $damage . PHP_EOL);
-		return ($this->am_i_alive());
+		return ($this->amIAlive());
 	}
 	
 	public function increaseShield($PP)
