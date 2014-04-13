@@ -68,3 +68,16 @@ text-align: center;
 line-height: 3.5em;
 color:#E0E0E0;
 }
+
+.choosePlayer
+{
+    background-color: #303030;
+    border-radius: 15px;
+    margin: 20px;
+    padding: 10px;
+    color:#E0E0E0;
+}
+
+#container form{
+    top:0px;
+}

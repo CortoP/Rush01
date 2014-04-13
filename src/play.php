@@ -9,9 +9,10 @@
 session_start();
 include('../class/Game.class.php');
 echo '<a href="kill.php">Kill Session</a>';
+echo '<div id="container">';
 if (!isset($_SESSION['game'])){
 ?>
-<form action="create.php" method='POST' id="container">
+<form action="create.php" method='POST'>
 	<div id="create_account">
 		 <label for='name'>Name of the game</label>
 		 <input type='text' name='name' id='name' required/><br/>
@@ -30,10 +31,10 @@ else
 {
 	$s = implode("", @file("game"));
 	$game = unserialize($s);
-	echo '<h1>'.$game->getName().'</h1>';
 	if($_SESSION['game'] == 'GetSet')
 	{
 		echo '<form action="set_players.php" method="POST" id="container">';
+		echo '<h1>'.$game->getName().'</h1>';
 		for ($i = 1; $i <= $game->getNbrP(); $i++)
 		{
 ?>
@@ -60,4 +61,5 @@ else
 	fclose($fp);
 }
 ?>
+</div>
 </body>
