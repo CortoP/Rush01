@@ -1,4 +1,4 @@
-<header style="margin-top: 32px">
+<header style="margin-top: 50px">
 <LINK rel="stylesheet" href="../css/index.css" type="text/css" />
 <center>
 	<a href="/index.html"> <img src="../Title_Warhammer.png"> </a>
