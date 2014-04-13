@@ -153,7 +153,7 @@ abstract class Ship
 		print($this->_name . ' has been hit for ' . $damage . PHP_EOL);
 		return ($this->amIAlive());
 	}
-	
+
 	public function increaseShield($PP)
 	{
 		if ($PP > $this->_PP)
