@@ -22,7 +22,6 @@ class JusticarStorm extends Ship
 		$this->setShield(self::$shield);
 		$this->setLong(self::$long);
 		$this->setWide(self::$wide);
-		$this->setState('activable');
 		$this->setWeapons(new Blaster());
 		return;
 	}

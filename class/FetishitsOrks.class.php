@@ -2,9 +2,9 @@
 
 require_once('Player.class.php');
 
-class FetishistOrks extends Player
+class FetishitsOrks extends Player
 {
-	static protected $_color = 'pink';
+	protected $_color = 'pink';
 	static protected $_orks = 1;
 	protected $_orksId;
 
@@ -12,7 +12,7 @@ class FetishistOrks extends Player
 	{
 		parent::__construct($name);
 		$this->_orksId = self::$_orks;
-		$this->setColor(self::$_color);
+		$this->setColor($this->_color);
 		self::$_orks += 1;
 		echo "Orks ready to fight $this->_id.$this->_orksId!\n";
 	}

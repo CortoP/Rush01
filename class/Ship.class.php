@@ -16,7 +16,7 @@ abstract class Ship
 	protected $_orientation;
 	protected $_long;
 	protected $_wide;
-	protected $_state;
+	protected $_state = 'inactive';
 	protected $_color;
 
 	/* ---------- Getters ----------*/

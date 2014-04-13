@@ -5,7 +5,7 @@ $shield = $_POST['shield'];
 $weapon = $_POST['weapon'];
 $ship = $_POST['ship'];
 
-if ($speed + $shield + $weapon =< $_GET['PP'] && $speed >= 0 && $shield >= 0 && $weapon >= 0 && $_GET['PP'] > 0)
+if ($speed + $shield + $weapon <= $_GET['PP'] && $speed >= 0 && $shield >= 0 && $weapon >= 0 && $_GET['PP'] > 0)
 {
 	$ship->increaseAmnos($weapon);
 	$ship->increaseSpeed($speed);

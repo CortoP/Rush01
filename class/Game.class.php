@@ -5,6 +5,8 @@ require_once('Map.class.php');
 require_once('ImperialGuard.class.php');
 require_once('SpaceMarin.class.php');
 require_once('HammerOfRighteous.class.php');
+require_once('Eldars.class.php');
+require_once('FetishitsOrks.class.php');
 class Game
 {
 	use Dice;

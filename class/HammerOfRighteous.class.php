@@ -22,7 +22,7 @@ class HammerOfRighteous extends Ship
 		$this->setShield(self::$shield);
 		$this->setLong(self::$long);
 		$this->setWide(self::$wide);
-		$this->setState('activable');
+		$this->setState('shooting');
 		$this->setWeapons(new DoubleHeavyCannons());
 		return;
 	}

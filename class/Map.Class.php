@@ -5,6 +5,7 @@ Class Map{
 
 	private $_map;
 	private $_id;
+	private $_nbP;
 	private $_obstacles;
 	private $_zone = array(1 => array('rowMin' => 20, 'rowMax' => 80, 'colMin' => 5, 'colMax' => 30)
 		, 2 => array('rowMin' => 70, 'rowMax' => 95, 'colMin' => 25, 'colMax' => 125)
@@ -19,6 +20,7 @@ Class Map{
 		$this->_obstacles[] = new Asteroide();
 		$this->_obstacles[] = new Station();
 		$this->_id[0] = 'bh';
+		$this->_nbP = $kwargs['nbP'];
 		$this->putShips($kwargs['p1'], 1);
 		$this->putShips($kwargs['p2'], 3);
 		if (array_key_exists('p3', $kwargs))
@@ -192,21 +194,37 @@ Class Map{
 				else if ($this->_map[$row][$col] == 42)
 					echo '<div class="square touched"></div>';
 				else
-					$this->htmlObj($this->_id[$this->_map[$row][$col]]);
+					$this->htmlObj($this->_id[$this->_map[$row][$col]], $this->_map[$row][$col]);
 			}
 			echo '</div>';
 		}
 		echo '</div>';
 	}
 
-	public function htmlObj($obj)
+	public function htmlObj($obj, $id)
 	{
 		echo '<div class="square object ';
 		echo $obj->getName();
 		echo '">';
 		if ($obj instanceof Ship)
 		{
-?>
+			if ($obj->getState() == 'inactive')
+				$this->inactive($obj, $id);
+			if ($obj->getState() == 'activable')
+				$this->activable($obj, $id);
+			if ($obj->getState() == 'chosen')
+				$this->chosen($obj, $id);
+			if ($obj->getState() == 'played')
+				$this->inactive($obj, $id);
+			if ($obj->getState() == 'shooting')
+				$this->shooting($obj, $id);
+				}
+		echo '</div>';
+	}
+
+
+	public function inactive($obj, $id){
+	?>
 <div class="info">
 <h3 class="name"><?PHP echo $obj->getName()?></h3>
 <h4>PV:<?PHP echo $obj->getPV()?></h4>
@@ -218,10 +236,51 @@ Class Map{
 <h4>Y:<?PHP echo $obj->getY()?></h4>
 </div>
 <?PHP
-		}
-		echo '</div>';
+}
+	public function activable($obj, $id){
+	?>
+<div class="info">
+<h3 class="name"><?PHP echo $obj->getName()?></h3>
+  <form action="dispense_PP.php?" method="post">
+  <?PHP echo $obj->getPP()?> PP a dispenser :<br/>
+  Speed <input type='number' name="speed" value='<?PHP echo $obj->getSpeed()?>' min='<?PHP echo $obj->getSpeed()?>'  required/><br/>
+	Weapon <input type='number' name="weapon" value='<?PHP echo $obj->getWeapons()->getAmmos()?>' min='<?PHP echo $obj->getWeapons()->getAmmos()?>'  required/><br/>
+	Shield <input type='number' name="shield" value='<?PHP echo $obj->getShield()?>' min='<?PHP echo $obj->getShield()?>'  required/><br/>
+	<input type="hidden" name='id' value='<?PHP echo $id % $this->_nbP ;?>'>
+	<input type="hidden" name='depense' value='<?PHP echo $obj->getPP() ;?>'>
+	<input type='submit' name='submit' value='Valid'/>
+  </form></div>
+<?PHP
 	}
-
+	public function chosen($obj, $id){
+	?>
+<div class="info">
+<h3 class="name"><?PHP echo $obj->getName()?></h3>
+<form action="dispense_PP.php?" method="post">
+  Speed <input type='number' name="speed" value='0' min='0' max='<?PHP echo $obj->getSpeed()?>'  required/><br/>
+	<input type="hidden" name='id' value='<?PHP echo $id % $this->_nbP ;?>'>
+	<input type='submit' name='submit' value='Valid'/>
+	<input type='submit' name='submit' value='TurnRight'/>
+	<input type='submit' name='submit' value='TurnLeft'/>
+  </form>
+</div>
+<?PHP
+}	public function shooting($obj, $id){
+	?>
+<div class="info">
+<h3 class="name"><?PHP echo $obj->getName()?></h3>
+  <form action="dispense_PP.php?" method="post">
+  <?PHP echo $obj->getWeapons()->getName()?><br/>
+  <?PHP echo $obj->getWeapons()->getAmmos()?> ammo available :<br/>
+  Small Range: <?PHP echo $obj->getWeapons()->getSmallRange()?><br/>
+  Medium Range: <?PHP echo $obj->getWeapons()->getMediumRange()?><br/>
+  Long Range: <?PHP echo $obj->getWeapons()->getLongRange()?><br/>
+	<input type="hidden" name='id' value='<?PHP echo $id % $this->_nbP ;?>'>
+	<input type="hidden" name='ammo' value='<?PHP echo $obj->getWeapons()->getAmmos() ;?>'>
+	<input type='submit' name='submit' value='Valid'/>
+  </form></div>
+<?PHP
+}
 	public function __toString()
 	{
 		for ($row = 0; $row < 100; $row++)

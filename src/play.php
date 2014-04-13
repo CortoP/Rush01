@@ -48,6 +48,8 @@ else
 		Choose your faction
 		<option value='ImperialGuard'>Imperial Guard</option>
 		<option value='SpaceMarin'>SpaceMarin</option>
+		<option value='Eldars'>Eldars</option>
+		<option value='FetishitsOrks'>FetishitsOrks</option>
 	</select></div>
 <?PHP
 		}

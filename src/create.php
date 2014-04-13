@@ -1,7 +1,7 @@
 <?PHP
 session_start();
 include('../class/Game.class.php');
-//header('Location: play.php');
+header('Location: play.php');
 if (!isset($_POST['name']) || !isset($_POST['nbr']) ||!isset($_POST['action'])
 	|| $_POST['name'] == "" || $_POST['nbr'] < 2 || $_POST['nbr'] > 4)
 {
