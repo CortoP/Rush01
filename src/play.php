@@ -55,7 +55,13 @@ else
 		echo '<a href="../create_account.html">Create a Player</a>';
 	}
 	else if ($_SESSION['game'] == 'GO')
-		$game->map->htmlize();
+	{
+		$s = serialize($game);
+		$fp = fopen("game", "w");
+		fwrite($fp, $s);
+		fclose($fp);
+		header('Location: board.php');
+	}
 	$s = serialize($game);
 	$fp = fopen("game", "w");
 	fwrite($fp, $s);
