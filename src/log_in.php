@@ -1,5 +1,5 @@
 <?PHP
-
+session_start();
 include('../connect.php');
 
 $login = $_POST['login'];
@@ -14,6 +14,7 @@ while($data = mysql_fetch_assoc($req))
 		{
 			if ($pass == $data['password'])
 			{
+				$_SESSION['log_user'] = $data['login'];
 				echo "<script>alert('Player connected')</script>";
 				echo "<script>window.location='/index.html'</script>";
 			}

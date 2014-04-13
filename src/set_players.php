@@ -8,9 +8,9 @@
 	for ($i = 1; $i <= $game->getNbrP(); $i++)
 	{
 		$game->setPlayer(new $_POST["faction$i"]($_POST["P$i"]));
-		$game->getP()[$i - 1]->setShip('JusticarStorm');
-		$game->getP()[$i - 1]->setShip('JusticarStorm');
-		$game->getP()[$i - 1]->setShip('JusticarStorm');
+		$game->getP()[$i - 1]->setShip(new JusticarStorm());
+		$game->getP()[$i - 1]->setShip(new JusticarStorm());
+		$game->getP()[$i - 1]->setShip(new HammerOfRighteous());
 	}
 	$s = serialize($game);
 	$fp = fopen("game", "w");
