@@ -14,7 +14,7 @@ while($data = mysql_fetch_assoc($req))
 		{
 			//Redirection vers la page principale
 			echo "<script>alert('Player always registered')</script>";
-			echo "<script>window.location='/index.html'</script>";
+			echo "<script>window.location='/index.php'</script>";
 			return ;
 		}
     }
@@ -24,5 +24,5 @@ $sql = 'INSERT INTO users (login, password) VALUES (\''.$login.'\', \''. $pass. 
 $req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 mysql_close();
 echo "<script>alert('Registered')</script>";
-echo "<script>window.location='/index.html'</script>";
+echo "<script>window.location='/index.php'</script>";
 ?>

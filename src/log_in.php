@@ -16,17 +16,18 @@ while($data = mysql_fetch_assoc($req))
 			{
 				$_SESSION['log_user'] = $data['login'];
 				echo "<script>alert('Player connected')</script>";
-				echo "<script>window.location='/index.html'</script>";
+				echo "<script>window.location='/index.php'</script>";
 			}
 			else
 			{
 				echo "<script>alert('Wrong password')</script>";
-				echo "<script>window.location='/index.html'</script>";
+				echo "<script>window.location='/index.php'</script>";
 			}
 			return ;
 		}
     }
 
 mysql_close();
-
+echo "<script>alert('Username not registered')</script>";
+echo "<script>window.location='/index.php'</script>";
 ?>

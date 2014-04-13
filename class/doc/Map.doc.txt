@@ -1,0 +1,6 @@
+---------------------------------------->
+Map Class Documentation
+
+The Map Class is used to dislay the map of the game.
+
+<----------------------------------------
