@@ -4,7 +4,7 @@ require_once('Player.class.php');
 
 class ImperialGuard extends Player
 {
-	static protected $_color = 'red';
+	protected $_color = 'red';
 	static protected $_guards = 1;
 	protected $_guardId;
 
