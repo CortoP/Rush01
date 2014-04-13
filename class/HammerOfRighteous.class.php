@@ -1,17 +1,17 @@
 <?php
 
 require_once('Ship.class.php');
-require_once('Blaster.class.php');
+require_once('DoubleHeavyCannons.class.php');
 
-class JusticarStorm extends Ship
+class HammerOfRighteous extends Ship
 {
-	private static $name = 'Justicar Storm';
-	private static $PV = 5;
-	private static $PP = 10;
-	private static $speed = 16;
-	private static $shield = 0;
-	private static $long = 5;
-	private static $wide = 1;
+	private static $name = 'Hammer of Righteous';
+	private static $PV = 8;
+	private static $PP = 12;
+	private static $speed = 10;
+	private static $shield = 3;
+	private static $long = 9;
+	private static $wide = 2;
 
 	public function __construct()
 	{
@@ -22,8 +22,8 @@ class JusticarStorm extends Ship
 		$this->setShield(self::$shield);
 		$this->setLong(self::$long);
 		$this->setWide(self::$wide);
-		$this->setWeapons(new Blaster());
-		print('Justicar Storm at your command, sir' . PHP_EOL);
+		$this->setWeapons(new DoubleHeavyCannons());
+		print('Hammer of Righteous bringing justice' . PHP_EOL);
 		return;
 	}
 
@@ -50,9 +50,9 @@ class JusticarStorm extends Ship
 
 	public static function doc()
 	{
-		if (file_exists("doc/JusticarStorm.doc.txt"))
-			return (file_get_contents("doc/JusticarStorm.doc.txt"));
-		return ("File not found : JusticarStorm.doc.txt");
+		if (file_exists("doc/HammerOfRighteous.doc.txt"))
+			return (file_get_contents("doc/HammerOfRighteous.doc.txt"));
+		return ("File not found : HammerOfRighteous.doc.txt");
 	}
 }
 

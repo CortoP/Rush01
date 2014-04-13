@@ -1,6 +1,10 @@
 <?PHP
+
+require_once('Dice.trait.php');
+
 abstract class Ship
 {
+	use Dice;
 	protected $_name;
 	protected $_PV;
 	protected $_PP;
@@ -13,19 +17,7 @@ abstract class Ship
 	protected $_long;
 	protected $_wide;
 
-	function am_i_alive()
-	{
-		if ($this->_PV > 0)
-			return True;
-		else
-			return False;
-	}
-
-	function sub_PV($damage)
-	{
-		$this->_PV -= $damage;
-		return ($this->am_i_alive());
-	}
+	/* ---------- Getters ----------*/
 
 	function getName()
 	{
@@ -87,6 +79,8 @@ abstract class Ship
 		return $this->_wide;
 	}
 
+	/* ---------- Setters ----------*/
+
 	function setName($name)
 	{
 		$this->_name = $name;
@@ -141,6 +135,29 @@ abstract class Ship
 	{
 		$this->_wide = $wide;
 	}
+
+	/* ---------- Other methods ---------- */
+
+	function amIAlive()
+	{
+		if ($this->_PV > 0)
+		{
+			print($this->_name . ' is still standing' . PHP_EOL);
+			return True;
+		}
+		else
+		{
+			print($this->_name . ' has been destroyed' . PHP_EOL);
+			return False;
+		}
+	}
+
+	function subPV($damage)
+	{
+		$this->_PV -= $damage;
+		print($this->_name . ' has been hit for ' . $damage . PHP_EOL);
+		return ($this->amIAlive());
+	}
 	
 	public function increaseShield($PP)
 	{
@@ -171,7 +188,7 @@ abstract class Ship
 		}
 	}
 
-	public function increaseCharges($PP)
+	public function increaseAmmos($PP)
 	{
 		if ($PP > $this->_PP)
 			print('Not enough PP' . PHP_EOL);

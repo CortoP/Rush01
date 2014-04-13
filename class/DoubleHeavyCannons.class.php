@@ -2,13 +2,13 @@
 
 require_once('Weapon.class.php');
 
-class Blaster extends Weapon
+class DoubleHeavyCannons extends Weapon
 {
-	private static $name = 'Blaster';
-	private static $ammos = 0;
-	private static $small_range = 20;
-	private static $medium_range = 40;
-	private static $long_range = 60;
+	private static $name = 'Double Heavy Cannons';
+	private static $ammos = 2;
+	private static $small_range = 30;
+	private static $medium_range = 60;
+	private static $long_range = 90;
 
 	public function __construct()
 	{
@@ -39,9 +39,9 @@ class Blaster extends Weapon
 
 	public static function doc()
 	{
-		if (file_exists("doc/Blaster.doc.txt"))
-			return (file_get_contents("doc/Blaster.doc.txt"));
-		return ("File not found : Blaster.doc.txt");
+		if (file_exists("doc/DoubleHeavyCannons.doc.txt"))
+			return (file_get_contents("doc/DoubleHeavyCannons.doc.txt"));
+		return ("File not found : DoubleHeavyCannons.doc.txt");
 	}
 }
 
