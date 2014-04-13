@@ -256,7 +256,7 @@ Class Map{
 	?>
 <div class="info">
 <h3 class="name"><?PHP echo $obj->getName()?></h3>
-<form action="dispense_PP.php?" method="post">
+<form action="move.php?" method="post">
   Speed <input type='number' name="speed" value='0' min='0' max='<?PHP echo $obj->getSpeed()?>'  required/><br/>
 	<input type="hidden" name='id' value='<?PHP echo $id % $this->_nbP ;?>'>
 	<input type='submit' name='submit' value='Valid'/>

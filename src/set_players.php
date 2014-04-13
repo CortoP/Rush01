@@ -13,6 +13,7 @@
 		$game->getP()[$i - 1]->setShip(new HammerOfRighteous());
 		$maparray["p$i"] = $P;
 	}
+	$game->initPlayers();
 	$maparray['nbP'] = $game->getNbrP();
 	$game->setMap($maparray);
 	var_dump($game);

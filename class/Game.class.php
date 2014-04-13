@@ -45,6 +45,13 @@ class Game
 			{
 				$flag = 1;
 				$player->setState('active');
+/*				$i = 0;
+				while (($ship = $player->getShip($i)) !== -1)
+				{
+					if ($ship !== 1)
+						$ship->setState('activable');
+					$i++;
+				}*/
 			}
 			$player->initShips();
 		}
@@ -61,8 +68,8 @@ class Game
 					$key2 += 1;
 				if ($this->_players[$key2]->getState() == 'inactive')
 				{
-					this->$_players[$key] = 'inactive';
-					this->$_players[$key2] = 'active';
+					$this->_players[$key] = 'inactive';
+					$this->_players[$key2] = 'active';
 				}
 			}
 		}

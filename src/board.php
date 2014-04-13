@@ -16,4 +16,7 @@ $game = unserialize($_SESSION['class']);
     <div id="chat"></div>
     </div>
     </body>
-</html>
+	</html>
+<?PHP
+$_SESSION['class'] = serialize($game);
+?>
