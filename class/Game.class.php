@@ -33,5 +33,42 @@ class Game
 	public function setMap(array $kwargs){
 		$this->map = new Map($kwargs);
 	}
+
+	public function changePlayer()
+	{
+		foreach ($_players as $key => $player)
+		{
+			if ($player->getState() == 'active')
+			{
+				$key2 = $key + 1;
+				while ($key2 < count($_players) && $_players[$key2]->getState() != 'inactive')
+					$key2 += 1;
+				if ($_players[$key2]->getState() == 'inactive')
+				{
+					$_players[$key] = 'inactive';
+					$_players[$key2] = 'active';
+				}
+			}
+		}
+		$flag = 0;
+		foreach ($players as $key => $player)
+		{
+			if ($player->getState() != 'dead')
+			{
+				$flag += 1;
+				if ($flag == 1)
+				   $win = $key;
+			}
+		}
+		if ($flag == 1)
+		{
+			echo "<script>alert('One player wins')</script>";
+			echo "<script>window.location('/index.php')</script>";
+		}
+		else
+		{
+			//Reinitialisation des joueurs non dead
+		}
+	}
 }
 ?>

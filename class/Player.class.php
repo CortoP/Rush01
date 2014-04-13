@@ -102,9 +102,22 @@ abstract class Player
 			return (1);
 	}
 
+	public function setStep($step)
+	{
+		if ($step == 'PP' || $step == 'move' || $step == 'shot' || $step == 'end')
+		{
+			$this->_step = $step;
+		}
+	}
+
 	public function getState()
 	{
 		return ($this->_state);
+	}
+
+	public function getStep()
+	{
+		return ($this->_step);
 	}
 
 }
