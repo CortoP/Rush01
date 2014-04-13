@@ -9,6 +9,8 @@ abstract class Player
 	protected $_ships;  //array of ships [ship_id => ship]
 	protected $_color;
 	static protected $_playerId = 1;
+	protected $_state;
+	protected $_step;
 
 	public function __construct($name)
 	{
@@ -100,6 +102,35 @@ abstract class Player
 			}
 		}
 	}
+
+	public function setState($state)
+	{
+		if ($state == 'active' || $state == 'inactive' || $state == 'played' || $state == 'dead')
+		{
+			$this->_state = $state;
+		}
+		else
+			return (1);
+	}
+
+	public function setStep($step)
+	{
+		if ($step == 'PP' || $step == 'move' || $step == 'shot' || $step == 'end')
+		{
+			$this->_step = $step;
+		}
+	}
+
+	public function getState()
+	{
+		return ($this->_state);
+	}
+
+	public function getStep()
+	{
+		return ($this->_step);
+	}
+
 }
 
 ?>
