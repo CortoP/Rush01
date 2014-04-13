@@ -102,21 +102,14 @@ Class Map{
 
 	}
 
-	public function test()
+	public function fire($id, $range)
 	{
-		$obj = $this->_id[1];
-		$range = 114;
-		$this->fire($obj, $range);
-	}
-
-	public function fire($obj, $range)
-	{
+		$obj = $this->_id[$id];
 		$i = 1;
 		if ($obj->getOrientation() > 2)
 			$i = -1;
 		$row = $obj->getY();
 		$col = $obj->getX();
-		printf("row = %d col = %d \n", $row, $col);
 		if ($obj->getOrientation() % 2 == 0)
 		{
 			echo "dans premier if\n";
@@ -216,10 +209,11 @@ Class Map{
 ?>
 <div class="info">
 <h3 class="name"><?PHP echo $obj->getName()?></h3>
-<h4>Armes Disponibles</h4>
-<h4>PP</h4>
-<h4>Point de coque</h4>
-<h4>Vitesse</h4>
+<h4>PV:<?PHP echo $obj->getPV()?></h4>
+<h4>PP:<?PHP echo $obj->getPP()?></h4>
+<h4>Speed:<?PHP echo $obj->getSpeed()?></h4>
+<h4>Shield:<?PHP echo $obj->getShield()?></h4>
+<h4>Weapon:<?PHP echo $obj->getWeapons()->getName()?></h4>
 </div>
 <?PHP
 		}

@@ -8,7 +8,7 @@
 <?PHP
 include('class/Map.class.php');
 $map = new Map;
-$map->test();
+$map->fire(1, 115);
 $map->htmlize();
 //print($map);
 ?>
