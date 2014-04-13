@@ -1,16 +1,16 @@
 <header style="margin-top: 32px">
 <LINK rel="stylesheet" href="../css/index.css" type="text/css" />
+<center>
+	<a href="/index.html"> <img src="../Title_Warhammer.png"> </a>
+</center>
+</header>
+<body id='body'>
 <?PHP
 session_start();
 include('../class/Game.class.php');
 echo '<a href="kill.php">Kill Session</a>';
 if (!isset($_SESSION['game'])){
 ?>
-<center>
-	<a href="/index.html"> <img src="../Title_Warhammer.png"> </a>
-</center>
-</header>
-<body id='body'>
 <form action="create.php" method='POST' id="container">
 	<div id="create_account">
 		 <label for='name'>Name of the game</label>
@@ -33,13 +33,15 @@ else
 	echo '<h1>'.$game->getName().'</h1>';
 	if($_SESSION['game'] == 'GetSet')
 	{
-		echo '<form action="set_players.php" method="POST">';
+		echo '<form action="set_players.php" method="POST" id="container">';
 		for ($i = 1; $i <= $game->getNbrP(); $i++)
 		{
 ?>
-	<label for=<?PHP echo "'P$i'> Player $i"?></label>
-	<input type='text' name='<?PHP echo "P$i' id='P$i"?>' required/><br/>
-	<span>no password yet, ajouter choix de faction</span><br/>
+	<div>
+		<label for=<?PHP echo "'P$i'> Player $i"?></label>
+		<input type='text' name='<?PHP echo "P$i' id='P$i"?>' required/><br/>
+		<span>no password yet, ajouter choix de faction</span><br/>
+	</div>
 <?PHP
 		}
 		echo '<input type="submit" name="action" value="OK"/>';
