@@ -8,6 +8,7 @@
 <body id='body'>
 <?PHP
 session_start();
+include('login_exists.php');
 include('../class/Game.class.php');
 echo '<a href="kill.php">Kill Session</a>';
 echo '<div id="container">';
