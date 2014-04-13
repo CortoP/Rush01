@@ -19,126 +19,121 @@ abstract class Ship
 
 	/* ---------- Getters ----------*/
 
-	function getName()
+	public function getName()
 	{
 		return $this->_name;
 	}
 
-	function getPV()
+	public function getPV()
 	{
 		return $this->_PV;
 	}
 
-	function getSpan()
-	{
-		return $this->_span;
-	}
-
-	function getPP()
+	public function getPP()
 	{
 		return $this->_PP;
 	}
 
-	function getSpeed()
+	public function getSpeed()
 	{
 		return $this->_speed;
 	}
 
-	function getShield()
+	public function getShield()
 	{
 		return $this->_shield;
 	}
 
-	function getWeapons()
+	public function getWeapons()
 	{
 		return $this->_weapons;
 	}
 
-	function getX()
+	public function getX()
 	{
 		return $this->_x;
 	}
 
-	function getY()
+	public function getY()
 	{
 		return $this->_y;
 	}
 
-	function getOrientation()
+	public function getOrientation()
 	{
 		return $this->_orientation;
 	}
 
-	function getLong()
+	public function getLong()
 	{
 		return $this->_long;
 	}
 
-	function getWide()
+	public function getWide()
 	{
 		return $this->_wide;
 	}
 
 	/* ---------- Setters ----------*/
 
-	function setName($name)
+	public function setName($name)
 	{
 		$this->_name = $name;
 	}
 
-	function setPV($PV)
+	public function setPV($PV)
 	{
 		$this->_PV = $PV;
 	}
 
-	function setPP($PP)
+	public function setPP($PP)
 	{
 		$this->_PP = $PP;
 	}
 
-	function setSpeed($speed)
+	public function setSpeed($speed)
 	{
 		$this->_speed = $speed;
 	}
 
-	function setShield($shield)
+	public function setShield($shield)
 	{
 		$this->_shield = $shield;
 	}
 
-	function setWeapons($weapons)
+	public function setWeapons($weapons)
 	{
 		$this->_weapons = $weapons;
 	}
 
-	function setX($x)
+	public function setX($x)
 	{
 		$this->_x = $x;
 	}
 
-	function setY($y)
+	public function setY($y)
 	{
 		$this->_y = $y;
 	}
 
-	function setOrientation($orientation)
+	public function setOrientation($orientation)
 	{
 		$this->_orientation = $orientation;
 	}
 
-	function setLong($long)
+	public function setLong($long)
 	{
 		$this->_long = $long;
 	}
 
-	function setWide($wide)
+	public function setWide($wide)
 	{
 		$this->_wide = $wide;
 	}
 
 	/* ---------- Other methods ---------- */
 
-	function amIAlive()
+	public function amIAlive()
 	{
 		if ($this->_PV > 0)
 		{
@@ -152,7 +147,7 @@ abstract class Ship
 		}
 	}
 
-	function subPV($damage)
+	public function subPV($damage)
 	{
 		$this->_PV -= $damage;
 		print($this->_name . ' has been hit for ' . $damage . PHP_EOL);
