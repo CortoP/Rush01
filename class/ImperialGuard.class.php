@@ -12,7 +12,7 @@ class ImperialGuard extends Player
 	{
 		parent::__construct($name);
 		$this->_guardId = self::$_guards;
-		$this->setColor(self::$_color);
+		$this->setColor($this->_color);
 		self::$_guards += 1;
 		echo "Hi sir, I'm a Imperial Guard matricule $this->_id.$this->_guardId!\n";
 	}
@@ -20,6 +20,11 @@ class ImperialGuard extends Player
 	public function __toString()
 	{
 		return 'Imperial Guard: ( Id: ' . $this->_id . ' Name: ' . $this->_name . ' )';
+	}
+
+	public function getCol()
+	{
+		return $this->_color ;
 	}
 }
 
