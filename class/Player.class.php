@@ -17,6 +17,7 @@ abstract class Player
 		$this->setName($name);
 		$this->setId(self::$_playerId);
 		self::$_playerId += 1;
+		$this->setState('inactive');
 	}
 
 	public function __toString()
