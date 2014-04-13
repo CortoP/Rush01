@@ -198,22 +198,14 @@ Class Map{
 		}
 		echo '</div>';
 	}
+
 	public function htmlObj($obj)
 	{
 		echo '<div class="square object ';
 		echo $obj->getName();
-		echo ' '.$obj;
 		echo '">';
 		if ($obj instanceof Ship)
 		{
-			if ($obj->getState() == 'inactive')
-				inactive($obj);
-		}
-		echo '</div>';
-	}
-
-function inactive($obj)
-{
 ?>
 <div class="info">
 <h3 class="name"><?PHP echo $obj->getName()?></h3>
@@ -225,11 +217,10 @@ function inactive($obj)
 <h4>X:<?PHP echo $obj->getX()?></h4>
 <h4>Y:<?PHP echo $obj->getY()?></h4>
 </div>
-
 <?PHP
-}
-
-
+		}
+		echo '</div>';
+	}
 
 	public function __toString()
 	{

@@ -4,7 +4,7 @@ require_once('Player.class.php');
 
 class ImperialGuard extends Player
 {
-	static protected $_color = 'red';
+	protected $_color = 'red';
 	static protected $_guards = 1;
 	protected $_guardId;
 
@@ -12,7 +12,7 @@ class ImperialGuard extends Player
 	{
 		parent::__construct($name);
 		$this->_guardId = self::$_guards;
-		$this->setColor(self::$_color);
+		$this->setColor($this->_color);
 		self::$_guards += 1;
 		echo "Hi sir, I'm a Imperial Guard matricule $this->_id.$this->_guardId!\n";
 	}

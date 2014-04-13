@@ -1,4 +1,8 @@
-<header style="margin-top: 50px">
+<?PHP
+session_start();
+include('login_exists.php');
+include('../class/Game.class.php');
+?><header style="margin-top: 50px">
 <LINK rel="stylesheet" href="../css/index.css" type="text/css" />
 <LINK rel="stylesheet" href="../css/map.css" type="text/css" />
 <center>
@@ -7,9 +11,6 @@
 </header>
 <body id='body'>
 <?PHP
-session_start();
-include('login_exists.php');
-include('../class/Game.class.php');
 echo '<a href="kill.php">Kill Session</a>';
 echo '<div id="container">';
 if (!isset($_SESSION['game'])){
@@ -31,8 +32,7 @@ if (!isset($_SESSION['game'])){
 }
 else
 {
-	$s = implode("", @file("game"));
-	$game = unserialize($s);
+	$game = unserialize($_SESSION['class']);
 	if($_SESSION['game'] == 'GetSet')
 	{
 		echo '<form action="set_players.php" method="POST" id="container">';
@@ -57,16 +57,10 @@ else
 	}
 	else if ($_SESSION['game'] == 'GO')
 	{
-		$s = serialize($game);
-		$fp = fopen("game", "w");
-		fwrite($fp, $s);
-		fclose($fp);
+		$_SESSION['class'] = serialize($game);
 		header('Location: board.php');
 	}
-	$s = serialize($game);
-	$fp = fopen("game", "w");
-	fwrite($fp, $s);
-	fclose($fp);
+	$_SESSION['class'] = serialize($game);
 }
 ?>
 </div>
