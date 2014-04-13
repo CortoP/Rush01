@@ -10,54 +10,54 @@ abstract class Weapon
 
 	/* ---------- Getters ----------*/
 
-	function getName()
+	public function getName()
 	{
 		return $this->_name;
 	}
 
-	function getAmmos()
+	public function getAmmos()
 	{
 		return $this->_ammos;
 	}
 
-	function getMediumRange()
+	public function getMediumRange()
 	{
 		return $this->_medium_range;
 	}
 
-	function getSmallRange()
+	public function getSmallRange()
 	{
 		return $this->_small_range;
 	}
 
-	function getLongRange()
+	public function getLongRange()
 	{
 		return $this->_long_range;
 	}
 
 	/* ---------- Setters ----------*/
 
-	function setName($name)
+	public function setName($name)
 	{
 		$this->_name = $name;
 	}
 
-	function setAmmos($ammos)
+	public function setAmmos($ammos)
 	{
 		$this->_ammos = $ammos;
 	}
 
-	function setSmallRange($small_range)
+	public function setSmallRange($small_range)
 	{
 		$this->_small_range = $small_range;
 	}
 
-	function setMediumRange($medium_range)
+	public function setMediumRange($medium_range)
 	{
 		$this->_medium_range = $medium_range;
 	}
 
-	function setLongRange($long_range)
+	public function setLongRange($long_range)
 	{
 		$this->_long_range = $long_range;
 	}
