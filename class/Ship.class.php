@@ -17,6 +17,7 @@ abstract class Ship
 	protected $_long;
 	protected $_wide;
 	protected $_state;
+	protected $_color;
 
 	/* ---------- Getters ----------*/
 
@@ -30,16 +31,12 @@ abstract class Ship
 		return $this->_name;
 	}
 
-<<<<<<< HEAD
-	function getPP()
-=======
 	public function getPV()
 	{
 		return $this->_PV;
 	}
 
 	public function getPP()
->>>>>>> 8cc8dda299d457eda54425f454d2d4066a5420fe
 	{
 		return $this->_PP;
 	}
@@ -82,6 +79,11 @@ abstract class Ship
 	public function getWide()
 	{
 		return $this->_wide;
+	}
+
+	public function getColor()
+	{
+		return $this->_color;
 	}
 
 	/* ---------- Setters ----------*/
@@ -144,6 +146,11 @@ abstract class Ship
 	public function setWide($wide)
 	{
 		$this->_wide = $wide;
+	}
+
+	public function setColor($color)
+	{
+		$this->_color = $color;
 	}
 
 	/* ---------- Other methods ---------- */
