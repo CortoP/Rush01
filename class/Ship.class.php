@@ -17,6 +17,7 @@ abstract class Ship
 	protected $_long;
 	protected $_wide;
 	protected $_state;
+	protected $_color;
 
 	/* ---------- Getters ----------*/
 
@@ -80,6 +81,11 @@ abstract class Ship
 		return $this->_wide;
 	}
 
+	public function getColor()
+	{
+		return $this->_color;
+	}
+
 	/* ---------- Setters ----------*/
 
 	public function setState($state)
@@ -140,6 +146,11 @@ abstract class Ship
 	public function setWide($wide)
 	{
 		$this->_wide = $wide;
+	}
+
+	public function setColor($color)
+	{
+		$this->_color = $color;
 	}
 
 	/* ---------- Other methods ---------- */
