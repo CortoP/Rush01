@@ -4,6 +4,7 @@ require_once('Dice.trait.php');
 require_once('Map.class.php');
 require_once('ImperialGuard.class.php');
 require_once('SpaceMarin.class.php');
+require_once('HammerOfRighteous.class.php');
 class Game
 {
 	use Dice;
@@ -19,7 +20,6 @@ class Game
 	{
 		$this->_name = $kwargs['name'];
 		$this->_nbPlayers = $kwargs['nbrP'];
-		$this->map = new Map;
 	}
 
 	public function getName(){return $this->_name;}
@@ -28,6 +28,10 @@ class Game
 
 	public function setPlayer($p){
 		$this->_players[] = $p;
+	}
+
+	public function setMap(array $kwargs){
+		$this->map = new Map($kwargs);
 	}
 }
 ?>

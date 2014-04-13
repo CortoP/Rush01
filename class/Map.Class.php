@@ -4,17 +4,27 @@ require_once 'JusticarStorm.class.php';
 Class Map{
 
 	private $_map;
-	private $_id = array();
-	private $_obstacles = array();
+	private $_id;
+	private $_obstacles;
+	private $_zone = array(1 => array('rowMin' => 20, 'rowMax' => 80, 'colMin' => 5, 'colMax' => 30)
+		, 2 => array('rowMin' => 70, 'rowMax' => 95, 'colMin' => 25, 'colMax' => 125)
+		, 3 => array('rowMin' => 20, 'rowMax' => 80, 'colMin' => 120, 'colMax' => 145)
+		, 4 => array('rowMin' => 5, 'rowMax' => 30, 'colMin' => 25, 'colMax' => 125));
 
 	public static $verbose = FALSE;
 
-	public function __construct()
+	public function __construct(array $kwargs)
 	{
 		$this->_map = array_fill(0,100,array_fill(0,150,0));
 		$this->_obstacles[] = new Asteroide();
 		$this->_obstacles[] = new Station();
-	//	$this->putShips();
+		$this->_id[0] = 'bh';
+		$this->putShips($kwargs['p1'], 1);
+		$this->putShips($kwargs['p2'], 3);
+		if (array_key_exists('p3', $kwargs))
+			$this->putShips($kwargs['p3'], 4);
+		if (array_key_exists('p4', $kwargs))
+			$this->putShips($kwargs['p4'], 2);
 		$this->setObstacles();
 	}
 
@@ -45,28 +55,23 @@ Class Map{
 
 	}
 
-	private function putShips()
+	private function putShips($ply, $or)
 	{
-		$obj = new JusticarStorm();
-		$obj->setOrientation(1);
-		$obj->setX(9);
-		$obj->setY(54);
-		$this->_addObj($obj, 55, 10);
-		$obj = new JusticarStorm();
-		$obj->setOrientation(3);
-		$obj->setX(129);
-		$obj->setY(54);
-		$this->_addObj($obj, 55, 130);
-		$obj = new JusticarStorm();
-		$obj->setOrientation(2);
-		$obj->setX(9);
-		$obj->setY(39);
-		$this->_addObj($obj, 40, 10);
-		$obj = new JusticarStorm();
-		$obj->setOrientation(4);
-		$obj->setX(129);
-		$obj->setY(39);
-		$this->_addObj($obj, 40, 130);
+		$i = 0;
+		while (($ship = $ply->getShip($i)) !== -1)
+		{
+			$ship->setOrientation($or);
+			do{
+				$row = mt_rand($this->_zone[$or]['rowMin'], $this->_zone[$or]['rowMax']);
+				$col = mt_rand($this->_zone[$or]['colMin'], $this->_zone[$or]['colMax']);
+				$touch = $this->_touch($ship, $row, $col);
+			}
+			while ($touch != 0);
+			$ship->setX($col);
+			$ship->setY($row);
+			$this->_addObj($ship, $row, $col);
+			$i++;
+		}
 	}
 
 	private function _addObj($obj, $row, $col)
@@ -209,6 +214,8 @@ Class Map{
 <h4>Speed:<?PHP echo $obj->getSpeed()?></h4>
 <h4>Shield:<?PHP echo $obj->getShield()?></h4>
 <h4>Weapon:<?PHP echo $obj->getWeapons()->getName()?></h4>
+<h4>X:<?PHP echo $obj->getX()?></h4>
+<h4>Y:<?PHP echo $obj->getY()?></h4>
 </div>
 <?PHP
 		}
