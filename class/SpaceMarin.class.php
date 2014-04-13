@@ -4,7 +4,7 @@ require_once('Player.class.php');
 
 class SpaceMarin extends Player
 {
-	static protected $_color = 'blue';
+	static protected $color = 'blue';
 	static protected $_marins = 1;
 	protected $_marinId;
 
@@ -12,7 +12,7 @@ class SpaceMarin extends Player
 	{
 		parent::__construct($name);
 		$this->_marinId = self::$_marins;
-		$this->setColor(self::$_color);
+		$this->setColor(self::$color);
 		self::$_marins += 1;
 		echo "Marin matricule $this->_id.$this->_marinId!\n";
 	}

@@ -4,7 +4,7 @@ require_once('Player.class.php');
 
 class Eldars extends Player
 {
-	static protected $_color = 'green';
+	static protected $color = 'green';
 	static protected $_eldars = 1;
 	protected $_eldarsId;
 
@@ -12,7 +12,7 @@ class Eldars extends Player
 	{
 		parent::__construct($name);
 		$this->_eldarsId = self::$_eldars;
-		$this->setColor(self::$_color);
+		$this->setColor(self::$color);
 		self::$_eldars += 1;
 		echo "Eldars matricule $this->_id.$this->_eldarsId!\n";
 	}

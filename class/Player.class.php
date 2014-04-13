@@ -87,7 +87,18 @@ abstract class Player
 
 	public function setColor($color)
 	{
-		$this->color = $color;
+		$this->_color = $color;
+	}
+
+	public function initShips()
+	{
+		if (isset($this->_ships[0]))
+		{
+			foreach ($this->_ships as $ship)
+			{
+				$ship->init();
+			}
+		}
 	}
 }
 
