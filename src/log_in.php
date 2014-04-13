@@ -1,9 +1,11 @@
 <?PHP
 
+include('../connect.php');
+
 $login = $_POST['login'];
 $pass = hash('whirlpool', $_POST['pass']);
-$db = mysql_connect('localhost', 'root', 'password');
-mysql_select_db('test', $db);
+$db = connect();
+mysql_select_db('warhammer', $db);
 $sql = 'SELECT login, password from users';
 $req = mysql_query($sql);
 while($data = mysql_fetch_assoc($req))
@@ -12,11 +14,13 @@ while($data = mysql_fetch_assoc($req))
 		{
 			if ($pass == $data['password'])
 			{
-				echo "<script>alert('Joueur connecte')</script>";
+				echo "<script>alert('Player connected')</script>";
+				echo "<script>window.location='/index.html'</script>";
 			}
 			else
 			{
-				echo "<script>alert('Mauvais password')</script>";
+				echo "<script>alert('Wrong password')</script>";
+				echo "<script>window.location='/index.html'</script>";
 			}
 			return ;
 		}
