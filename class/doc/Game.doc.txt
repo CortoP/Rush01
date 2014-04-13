@@ -1,0 +1,26 @@
+---------------------------------------->
+Game Class Documentation
+
+The Game Class is used to show the state of the game for all players.
+
+Attributes :
+
+- _name : The name of the player.
+- _players : All players.
+- _nbPlayers : The number of players.
+- _pId : Player's id.
+- _turn : Determines who has to play.
+- _phase : Order phase, movement phase or shoot phase.
+- map : The map.
+
+Methodes :
+
+- getName() : Returns the name of the player.
+- getNbrP() : Returns the number of players.
+- getP():
+
+- setPlayer($p) :
+
+- __construct() : The constructor of the Game Class.
+
+<----------------------------------------
