@@ -20,6 +20,11 @@ class SpaceMarin extends Player
 	{
 		return 'SpaceMarin: ( Id: ' . $this->_id . ' Name: ' . $this->_name . ' Ships:' . $this->_ships. ' )';
 	}
+
+	public function getCol()
+	{
+		return $this->_color ;
+	}
 }
 
 ?>

@@ -20,6 +20,11 @@ class ImperialGuard extends Player
 	{
 		return 'Imperial Guard: ( Id: ' . $this->_id . ' Name: ' . $this->_name . ' )';
 	}
+
+	public function getCol()
+	{
+		return $this->_color ;
+	}
 }
 
 ?>
