@@ -1,13 +1,13 @@
 <?php
 
 require_once('Ship.class.php');
-require_once('Blaster.class.php');
+require_once('.class.php'); // Mettre la classe de l'arme que vous voulez pour le ship
 
-class JusticarStorm extends Ship
+class Name extends Ship // Remplacer Name par le nom badass de votre ship
 {
-	private static $name = 'Justicar Storm';
-	private static $PV = 5;
-	private static $PP = 10;
+	private static $name = 'Name'; // La meme mais avec des espaces si besoin
+	private static $PV = 5; // Mettre les valeurs de chaque attribut pour votre ship
+	private static $PP = 10; // Comparer les valeurs avec les ships existants
 	private static $speed = 16;
 	private static $shield = 0;
 	private static $long = 5;
@@ -22,8 +22,8 @@ class JusticarStorm extends Ship
 		$this->setShield(self::$shield);
 		$this->setLong(self::$long);
 		$this->setWide(self::$wide);
-		$this->setWeapons(new Blaster());
-		print('Justicar Storm at your command, sir' . PHP_EOL);
+		$this->setWeapons(new WeaponName()); // Remplacer WeaponName par le nom de la classe de l'arme souhaitee
+		print('Justicar Storm at your command, sir' . PHP_EOL); // Just for fun
 		return;
 	}
 
@@ -50,9 +50,9 @@ class JusticarStorm extends Ship
 
 	public static function doc()
 	{
-		if (file_exists("doc/JusticarStorm.doc.txt"))
-			return (file_get_contents("doc/JusticarStorm.doc.txt"));
-		return ("File not found : JusticarStorm.doc.txt");
+		if (file_exists("doc/.doc.txt")) // Mettre le nom de la classe avant le .doc
+			return (file_get_contents("doc/.doc.txt"));
+		return ("File not found : .doc.txt");
 	}
 }
 

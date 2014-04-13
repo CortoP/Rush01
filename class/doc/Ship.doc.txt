@@ -1,5 +1,55 @@
 ---------------------------------------->
 Ship Class Documentation:
 
+This is the base abstract class for all ships.
+
+Attributes :
+
+- _name : The name of the Ship.
+- _PV : The health points of the Ship.
+- _PP : The power points of the Ship.
+- _speed : The speed value of the Ship.
+- _shield : The shield value of the Ship.
+- _weapons : The weapons of the Ship which is a subclass of the Weapon class.
+- _x : The x coordinate of the Ship.
+- _y : The y coordinate of the Ship.
+- _orientation : How the Ship is oriented.
+- _long : How long the Ship is.
+- _wide : How wide the Ship is.
+
+Methods :
+
+- getName() : Return the _name of the Ship.
+- getPV() : Return the _PV of the Ship.
+- getPP() : Return the _PP of the Ship.
+- getSpeed() : Return the _speed of the Ship.
+- getShield() : Return the _shield of the Ship.
+- getWeapons() : Return the _weapons of the Ship.
+- getX() : Return the _x coordinate of the Ship.
+- getY() : Return the _y coordinate of the Ship.
+- getOrientation() : Return the _orientation of the Ship.
+- getLong() : Return the _long value of the Ship.
+- getWide() : Return the _wide value of the Ship.
+
+Setters are primarely used in the constructor of subclasses.
+
+- setName($name) : Set the _name of the Ship.
+- setPV($PV) : Set the _PV of the Ship.
+- setPP($PP) : Set the _PP of the Ship.
+- setSpeed($speed) : Set the _speed of the Ship.
+- setShield($shield): Set the _shield of the Ship.
+- setWeapons($weapons) : Set the _weapons of the Ship.
+- setX($x) : Set the _x of the Ship.
+- setY($y) : Set the _y of the Ship.
+- setOrientation($orientation) : Set the _orientation of the Ship.
+- setLong($long) : Set the _long of the Ship.
+- setWide($wide) : Set the _wide of the Ship.
+
+- amIAlive() : Returns true or false depending on the health of the Ship.
+- subPV($damage) : If the Ship is being shot at, decreases the Ship's _PV by the value of $damage.
+- increaseShield($PP) : If the player uses PP on the shield, increases the _shield value by $PP.
+- increaseSpeed($PP) : If the player uses PP on the speed, increases the _speed value by the total of PP * D6.
+- increaseAmmos($PP) : If the player uses PP on the weapon, increases the ammos of the Weapon by the number of times D6 >= 4.
+- doc() : Open the Ship Class Documentation.
 
 <----------------------------------------

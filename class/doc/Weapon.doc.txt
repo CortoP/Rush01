@@ -1,18 +1,34 @@
 ---------------------------------------->
 Weapon Class Documentation:
 
-This is the base abstract class for all
-weapons. It contains four attributes with
-their respectives get and set methods
-which are:
+This is the base abstract class for all weapons.
 
-- _charges : The number of charges needed
-to trigger the weapon.
-- _small_range : The smallest range of the
-weapon.
-- _medium_range : The medium range of the
-weapon.
-- _long_range : The longest range of the
-weapon.
+Attributes :
+
+- _name : The name of the Weapon.
+- _ammos : The number of times the ship can fire.
+- _small_range : The smallest range of the Weapon.
+- _medium_range : The medium range of the Weapon.
+- _long_range : The longest range of the Weapon.
+
+Methods :
+
+- getName() : Return the _name of the Weapon.
+- getAmmos() : Return the _ammos of the Weapon.
+- getSmallRange() : Return the _small_range of the Weapon.
+- getMediumRange() : Return the _medium_range of the Weapon.
+- getLongRange() : Return the _long_range of the Weapon.
+
+Setters are primarely used in the constructor of subclasses.
+
+- setName($name) : Set the _name of the Weapon.
+- setAmmos($ammos) : Set the _ammos of the Weapon.
+- setSmallRange($small_range) : Set the _small_range of the Weapon.
+- setMediumRange($medium_range) : Set the _medium_range of the Weapon.
+- setLongRange($long_range) : Set the _long_range of the Weapon.
+
+- addAmmos($ammos) : Increases _ammos by $ammos when the player uses PP for the Weapon.
+- openFire() : Decrements _ammos until it reaches 0 when the Ship fires its Weapon.
+- doc() : Open the Weapon Class Documentation.
 
 <----------------------------------------
