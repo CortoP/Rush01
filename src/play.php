@@ -1,5 +1,6 @@
 <header style="margin-top: 50px">
 <LINK rel="stylesheet" href="../css/index.css" type="text/css" />
+<LINK rel="stylesheet" href="../css/map.css" type="text/css" />
 <center>
 	<a href="/index.html"> <img src="../Title_Warhammer.png"> </a>
 </center>
@@ -54,7 +55,13 @@ else
 		echo '<a href="../create_account.html">Create a Player</a>';
 	}
 	else if ($_SESSION['game'] == 'GO')
-		var_dump($game->getP());
+	{
+		$s = serialize($game);
+		$fp = fopen("game", "w");
+		fwrite($fp, $s);
+		fclose($fp);
+		header('Location: board.php');
+	}
 	$s = serialize($game);
 	$fp = fopen("game", "w");
 	fwrite($fp, $s);

@@ -3,7 +3,7 @@ require_once 'Object.class.php';
 require_once 'JusticarStorm.class.php';
 Class Map{
 
-	private $_map = array();
+	private $_map;
 	private $_id = array();
 	private $_obstacles = array();
 
@@ -11,22 +11,16 @@ Class Map{
 
 	public function __construct()
 	{
-		for ($row = 0; $row < 100; $row++)
-		{
-			for ($col = 0; $col < 150; $col++)
-			{
-				$this->_map[$row][$col] = 1;
-			}
-		}
+		$this->_map = array_fill(0,100,array_fill(0,150,0));
 		$this->_obstacles[] = new Asteroide();
 		$this->_obstacles[] = new Station();
-		$this->putShips();
+	//	$this->putShips();
 		$this->setObstacles();
 	}
 
 	private function setObstacles()
 	{
-		for($i = 0; $i < 20; $i++)
+		for($i = 0; $i < 15; $i++)
 		{
 			$obj = clone $this->_obstacles[0];
 			do{
@@ -96,7 +90,7 @@ Class Map{
 			$col = $i;
 			for ($col; $col < $long; $col++)
 			{
-				$this->map[$row][$col] = $this->_count;
+				$this->_map[$row][$col] = $this->_count;
 			}
 		}
 
@@ -117,12 +111,12 @@ Class Map{
 			$range += $row * $i;
 			while ($row != $range)
 			{
-				if ($this->map[$row][$col] != 0)
+				if ($this->_map[$row][$col] != 0)
 				{
 					echo "Jai Touchaaaiioo\n";
 					printf("row:%d  col:%d\n", $row, $col);
-					$ret = $this->map[$row][$col];
-					$this->map[$row][$col] = 42;
+					$ret = $this->_map[$row][$col];
+					$this->_map[$row][$col] = 42;
 					return $ret;
 				}
 				$row++;
@@ -135,17 +129,17 @@ Class Map{
 			$range += $col * $i;
 			while ($col != $range)
 			{
-				if ($this->map[$row][$col] != 0)
+				if ($this->_map[$row][$col] != 0)
 				{
-					$ret = $this->map[$row][$col];
-					$this->map[$row][$col] = 42;
+					$ret = $this->_map[$row][$col];
+					$this->_map[$row][$col] = 42;
 					return $ret;
 				}
 				$col++;
 			}
 			$col--;
 		}
-		$this->map[$row][$col] = 42;
+		$this->_map[$row][$col] = 42;
 		return 0;
 	}
 
@@ -171,8 +165,10 @@ Class Map{
 			$col = $i;
 			for ($col; $col < $long; $col++)
 			{
-				if ($this->map[$row][$col] != 0)
-					return $this->map[$row][$col];
+				if ($row > 99 || $col > 149)
+					break ;
+				if ($this->_map[$row][$col] != 0)
+					return $this->_map[$row][$col];
 			}
 		}
 		return 0;
@@ -186,16 +182,15 @@ Class Map{
 			echo '<div class="line">';
 			for ($col = 0; $col < 150; $col++)
 			{
-				if ($this->map[$row][$col] == 0)
+				if ($this->_map[$row][$col] == 0)
 					echo '<div class="square empty"></div>';
-				else if ($this->map[$row][$col] == 42)
+				else if ($this->_map[$row][$col] == 42)
 					echo '<div class="square touched"></div>';
 				else
-					$this->htmlObj($this->_id[$this->map[$row][$col]]);
+					$this->htmlObj($this->_id[$this->_map[$row][$col]]);
 			}
 			echo '</div>';
 		}
-		$str = $str.PHP_EOL;
 		echo '</div>';
 	}
 
@@ -228,12 +223,12 @@ Class Map{
 				$str = $str.PHP_EOL;
 			for ($col = 0; $col < 150; $col++)
 			{
-				if ($this->map[$row][$col] == 0)
+				if ($this->_map[$row][$col] == 0)
 					$str = $str.".";
-				else if ($this->map[$row][$col] == 42)
+				else if ($this->_map[$row][$col] == 42)
 					$str = $str."X";
 				else
-					$str = $str.$this->map[$row][$col];
+					$str = $str.$this->_map[$row][$col];
 			}
 		}
 		$str = $str.PHP_EOL;

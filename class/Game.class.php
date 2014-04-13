@@ -19,6 +19,7 @@ class Game
 	{
 		$this->_name = $kwargs['name'];
 		$this->_nbPlayers = $kwargs['nbrP'];
+		$this->map = new Map;
 	}
 
 	public function getName(){return $this->_name;}
