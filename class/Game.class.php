@@ -36,24 +36,38 @@ class Game
 		$this->map = new Map($kwargs);
 	}
 
+	public function initPlayers()
+	{
+		$flag = 0;
+		foreach ($this->_players as $player)
+		{
+			if ($flag == 0 && $player->getState() == 'inactive')
+			{
+				$flag = 1;
+				$player->setState('active');
+			}
+			$player->initShips();
+		}
+	}
+
 	public function changePlayer()
 	{
-		foreach ($_players as $key => $player)
+		foreach ($this->_players as $key => $player)
 		{
 			if ($player->getState() == 'active')
 			{
 				$key2 = $key + 1;
-				while ($key2 < count($_players) && $_players[$key2]->getState() != 'inactive')
+				while ($key2 < count($this->_players) && $this->_players[$key2]->getState() != 'inactive')
 					$key2 += 1;
-				if ($_players[$key2]->getState() == 'inactive')
+				if ($this->_players[$key2]->getState() == 'inactive')
 				{
-					$_players[$key] = 'inactive';
-					$_players[$key2] = 'active';
+					this->$_players[$key] = 'inactive';
+					this->$_players[$key2] = 'active';
 				}
 			}
 		}
 		$flag = 0;
-		foreach ($players as $key => $player)
+		foreach ($this->_players as $key => $player)
 		{
 			if ($player->getState() != 'dead')
 			{
@@ -69,7 +83,7 @@ class Game
 		}
 		else
 		{
-			//Reinitialisation des joueurs non dead
+			$this->initPlayers();
 		}
 	}
 }
