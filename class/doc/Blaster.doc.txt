@@ -1,5 +1,23 @@
 ---------------------------------------->
 Blaster Class Documentation:
 
+This is the class for the Blaster Weapon. It inherits from the Weapon class.
+This is a standard Weapon.
+
+Attributes :
+
+- name : Blaster.
+- ammos : 0.
+- small_range = 20;
+- medium_range = 40;
+- long_range = 60;
+
+Methods :
+
+- __construct() : The constructor of the Blaster class. It sets the Weapon attributes to the Blaster one.
+- __destruct() : The destructor of the Blaster class.
+- __toString () : Returns the name Blaster.
+- init() : Reinitializes the Blaster attributes to default.
+- doc() : Open the Blaster Class Documentation.
 
 <----------------------------------------

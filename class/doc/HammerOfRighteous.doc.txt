@@ -1,0 +1,25 @@
+---------------------------------------->
+HammerOfRighteous Class Documentation:
+
+This is the class for the HammerOfRighteous Ship. It inherits from the Ship class.
+This is a large Ship with a DoubleHeavyCannons Weapon.
+
+Attributes :
+
+- name : HammerOfRighteous.
+- PV : 8.
+- PP : 12.
+- speed : 10.
+- shield : 3.
+- long : 9.
+- wide : 2.
+
+Methods :
+
+- __construct() : The constructor of the HammerOfRighteous class. It sets the Ship attributes to the HoR one.
+- __destruct () : The destructor of the HammerOfRighteous class.
+- __toString() : Returns the name Hammer Of Righteous.
+- init() : Reinitializes the Ship attributes to default.
+- doc() : Open the HammerOfRighteous Class Documentation.
+
+<----------------------------------------

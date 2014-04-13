@@ -1,5 +1,25 @@
 ---------------------------------------->
 JusticarStorm Class Documentation:
 
+This is the class for the Justicar Storm Ship. It inherits from the Ship class.
+This is a standard Ship with a Blaster Weapon.
+
+Attributes :
+
+- name : Justicar Storm.
+- PV : 5.
+- PP : 10.
+- speed : 16.
+- shield : 0.
+- long : 5.
+- wide : 1.
+
+Methods :
+
+- __construct() : The constructor of the JusticarStorm class. It sets the Ship attributes to the JS one.
+- __destruct () : The destructor of the JusticarStorm class.
+- __toString() : Returns the name Justicar Storm.
+- init() : Reinitializes the Ship attributes to default.
+- doc() : Open the JusticarStorm Class Documentation.
 
 <----------------------------------------

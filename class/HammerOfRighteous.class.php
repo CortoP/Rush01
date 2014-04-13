@@ -23,7 +23,6 @@ class HammerOfRighteous extends Ship
 		$this->setLong(self::$long);
 		$this->setWide(self::$wide);
 		$this->setWeapons(new DoubleHeavyCannons());
-		print('Hammer of Righteous bringing justice' . PHP_EOL);
 		return;
 	}
 

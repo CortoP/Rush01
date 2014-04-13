@@ -23,7 +23,6 @@ class Name extends Ship // Remplacer Name par le nom badass de votre ship
 		$this->setLong(self::$long);
 		$this->setWide(self::$wide);
 		$this->setWeapons(new WeaponName()); // Remplacer WeaponName par le nom de la classe de l'arme souhaitee
-		print('Justicar Storm at your command, sir' . PHP_EOL); // Just for fun
 		return;
 	}
 
