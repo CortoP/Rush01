@@ -1,0 +1,23 @@
+---------------------------------------->
+DoubleHeavyCannons Class Documentation:
+
+This is the class for the DoubleHeavyCannons Weapon. It inherits from the Weapon class.
+This is a heavy Weapon.
+
+Attributes :
+
+- name : Double Heavy Cannons.
+- ammos : 2.
+- small_range = 30;
+- medium_range = 60;
+- long_range = 90;
+
+Methods :
+
+- __construct() : The constructor of the DoubleHeavyCannons class. It sets the Weapon attributes to the DHC one.
+- __destruct() : The destructor of the DoubleHeavyCannons class.
+- __toString () : Returns the name Double Heavy Cannons.
+- init() : Reinitializes the Double Heavy Cannons attributes to default.
+- doc() : Open the DoubleHeavyCannons Class Documentation.
+
+<----------------------------------------
