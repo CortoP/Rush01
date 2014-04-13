@@ -9,6 +9,8 @@ abstract class Weapon
 	protected $_long_range;
 	protected $_actionField;
 
+	/* ---------- Getters ----------*/
+
 	function getName()
 	{
 		return $this->_name;
@@ -33,6 +35,8 @@ abstract class Weapon
 	{
 		return $this->_long_range;
 	}
+
+	/* ---------- Setters ----------*/
 
 	function setName($name)
 	{
@@ -59,12 +63,24 @@ abstract class Weapon
 		$this->_long_range = $long_range;
 	}
 
+	/* ---------- Other methods ---------- */
+
 	function addAmmos($ammos)
 	{
 		$this->_ammos += $ammos;
 	}
 
-	public static function doc() {
+	public function openFire()
+	{
+		if ($this->_ammos > 0)
+		{
+			print($this->_name . ' is opening fire!' . PHP_EOL);
+			$this->_ammos--;
+		}
+	}
+
+	public static function doc()
+	{
 		if (file_exists("doc/Weapon.doc.txt"))
 			return (file_get_contents("doc/Weapon.doc.txt"));
 		return ("File not found : Weapon.doc.txt");
