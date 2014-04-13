@@ -30,12 +30,16 @@ abstract class Ship
 		return $this->_name;
 	}
 
+<<<<<<< HEAD
+	function getPP()
+=======
 	public function getPV()
 	{
 		return $this->_PV;
 	}
 
 	public function getPP()
+>>>>>>> 8cc8dda299d457eda54425f454d2d4066a5420fe
 	{
 		return $this->_PP;
 	}
