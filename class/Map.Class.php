@@ -105,23 +105,43 @@ Class Map{
 		$this->_supObj($ship, $ship->getY(), $ship->getX());
 		if($or == 1)
 		{
-			$this->_addObj($ship, $ship->getY(), $ship->getX() + $s);
 			$ship->setX($ship->getX() + $s);
+			if ($this->_touch($ship, $ship->getY(), $ship->getX()))
+			{
+				unset($ship);
+				return ;
+			}
+			$this->_addObj($ship, $ship->getY(), $ship->getX());
 		}
 		if($or == 2)
 		{
-			$this->_addObj($ship, $ship->getY() + $s, $ship->getX());
 			$ship->setY($ship->getY() + $s);
+			if ($this->_touch($ship, $ship->getY(), $ship->getX()))
+			{
+				unset($ship);
+				return ;
+			}
+			$this->_addObj($ship, $ship->getY(), $ship->getX());
 		}
 		if($or == 3)
 		{
-			$this->_addObj($ship, $ship->getY(), $ship->getX() - $s);
 			$ship->setX($ship->getX() - $s);
+			if ($this->_touch($ship, $ship->getY(), $ship->getX()))
+			{
+				unset($ship);
+				return ;
+			}
+			$this->_addObj($ship, $ship->getY(), $ship->getX());
 		}
 		if($or == 4)
 		{
-			$this->_addObj($ship, $ship->getY() - $s, $ship->getX());
 			$ship->setY($ship->getY() - $s);
+			if ($this->_touch($ship, $ship->getY(), $ship->getX()))
+			{
+				unset($ship);
+				return ;
+			}
+			$this->_addObj($ship, $ship->getY(), $ship->getX());
 		}
 	}
 

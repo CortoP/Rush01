@@ -19,7 +19,7 @@ abstract class Ship
 	protected $_state = 'chosen';
 	protected $_color;
 
-	/* ---------- Getters ----------*/
+	/* ---------- Getters --------*/
 
 	public function getState()
 	{
