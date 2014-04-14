@@ -76,14 +76,56 @@ Class Map{
 		}
 	}
 
-	public function moveShip($id, $s)
+	public function turnLeft($id)
 	{
 		$ship = $this->_id[$id];
 		$this->_supObj($ship, $ship->getY(), $ship->getX());
-		$this->_addObj($ship, $ship->getY(), $ship->getX() + $s);
-		$ship->setX($ship->getX() + $s);
+		if (($or = $ship->getOrientation()) == 1)
+			$ship->setOrientation(4);
+		else
+			$ship->setOrientation($or - 1);
+		$this->_addObj($ship, $ship->getY(), $ship->getX());
 	}
-private function _supObj($obj, $row, $col)
+
+	public function turnRight($id)
+	{
+		$ship = $this->_id[$id];
+		$this->_supObj($ship, $ship->getY(), $ship->getX());
+		if (($or = $ship->getOrientation()) == 4)
+			$ship->setOrientation(1);
+		else
+			$ship->setOrientation($or + 1);
+		$this->_addObj($ship, $ship->getY(), $ship->getX());
+	}
+
+	public function moveShip($id, $s)
+	{
+		$ship = $this->_id[$id];
+		$or = $ship->getOrientation();
+		$this->_supObj($ship, $ship->getY(), $ship->getX());
+		if($or == 1)
+		{
+			$this->_addObj($ship, $ship->getY(), $ship->getX() + $s);
+			$ship->setX($ship->getX() + $s);
+		}
+		if($or == 2)
+		{
+			$this->_addObj($ship, $ship->getY() + $s, $ship->getX());
+			$ship->setY($ship->getY() + $s);
+		}
+		if($or == 3)
+		{
+			$this->_addObj($ship, $ship->getY(), $ship->getX() - $s);
+			$ship->setX($ship->getX() - $s);
+		}
+		if($or == 4)
+		{
+			$this->_addObj($ship, $ship->getY() - $s, $ship->getX());
+			$ship->setY($ship->getY() - $s);
+		}
+	}
+
+	private function _supObj($obj, $row, $col)
 	{
 		$this->_id[++$this->_count] = $obj;
 		$long = $obj->getLong();
