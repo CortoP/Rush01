@@ -5,7 +5,9 @@ trait Dice
 {
 	function roll()
 	{
-		return mt_rand(1,6);
+		$d = mt_rand(1, 6);
+		echo "#You rooled the dice and get a beautifull $d\n#";
+		return $d;
 	}
 }
 

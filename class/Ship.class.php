@@ -16,7 +16,7 @@ abstract class Ship
 	protected $_orientation;
 	protected $_long;
 	protected $_wide;
-	protected $_state = 'chosen';
+	protected $_state = 'inactive';
 	protected $_color;
 
 	/* ---------- Getters --------*/
@@ -194,6 +194,7 @@ abstract class Ship
 			print('Not enough PP' . PHP_EOL);
 		else
 		{
+			$total = 0;
 			$this->_PP -= $PP;
 			while ($PP > 0)
 			{
@@ -212,16 +213,9 @@ abstract class Ship
 		else
 		{
 			$this->_PP -= $PP;
-			$ammos = 0;
-			while ($PP > 0)
-			{
-				if ($this->roll() >= 4)
-					$ammos++;
-				$PP--;
-			}
 			$weap = $this->_weapons;
-			$weap->addAmmos($ammos);
-			print('Ammos has been increased by ' . $ammos . PHP_EOL);
+			$weap->addAmmos($PP);
+			print('Ammos has been increased by ' . $PP . PHP_EOL);
 		}
 	}
 

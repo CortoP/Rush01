@@ -30,6 +30,8 @@ Class Map{
 		$this->setObstacles();
 	}
 
+	public function getShip($id){return $this->_id[$id];}
+
 	private function setObstacles()
 	{
 		for($i = 0; $i < 15; $i++)
@@ -95,7 +97,13 @@ Class Map{
 			$ship->setOrientation(1);
 		else
 			$ship->setOrientation($or + 1);
-		$this->_addObj($ship, $ship->getY(), $ship->getX());
+		if ($this->_touch($ship, $ship->getY(), $ship->getX()))
+		{
+			unset($ship);
+			return ;
+		}
+		else
+			$this->_addObj($ship, $ship->getY(), $ship->getX());
 	}
 
 	public function moveShip($id, $s)
@@ -147,7 +155,6 @@ Class Map{
 
 	private function _supObj($obj, $row, $col)
 	{
-		$this->_id[++$this->_count] = $obj;
 		$long = $obj->getLong();
 		$wide = $obj->getWide();
 		if ($obj->getOrientation() % 2 == 0)
@@ -219,7 +226,7 @@ Class Map{
 					echo "Jai Touchaaaiioo\n";
 					printf("row:%d  col:%d\n", $row, $col);
 					$ret = $this->_map[$row][$col];
-					$this->_map[$row][$col] = 42;
+					$this->_map[$row][$col] = -1;
 					return $ret;
 				}
 				$row++;
@@ -235,14 +242,14 @@ Class Map{
 				if ($this->_map[$row][$col] != 0)
 				{
 					$ret = $this->_map[$row][$col];
-					$this->_map[$row][$col] = 42;
+					$this->_map[$row][$col] = -1;
 					return $ret;
 				}
 				$col++;
 			}
 			$col--;
 		}
-		$this->_map[$row][$col] = 42;
+		$this->_map[$row][$col] = -1;
 		return 0;
 	}
 
@@ -269,7 +276,7 @@ Class Map{
 			for ($col; $col < $long; $col++)
 			{
 				if ($row > 99 || $col > 149)
-					break ;
+					return 1;
 				if ($this->_map[$row][$col] != 0)
 					return $this->_map[$row][$col];
 			}
@@ -287,7 +294,7 @@ Class Map{
 			{
 				if ($this->_map[$row][$col] == 0)
 					echo '<div class="square empty"></div>';
-				else if ($this->_map[$row][$col] == 42)
+				else if ($this->_map[$row][$col] == -1)
 					echo '<div class="square touched"></div>';
 				else
 					$this->htmlObj($this->_id[$this->_map[$row][$col]], $this->_map[$row][$col]);
@@ -339,10 +346,10 @@ Class Map{
 <h3 class="name"><?PHP echo $obj->getName()?></h3>
   <form action="dispense_PP.php?" method="post">
   <?PHP echo $obj->getPP()?> PP a dispenser :<br/>
-  Speed <input type='number' name="speed" value='<?PHP echo $obj->getSpeed()?>' min='<?PHP echo $obj->getSpeed()?>'  required/><br/>
+  Speed <?PHP echo $obj->getSpeed()?>. Dice number<input type='number' name="speed" value='0' min='0'   required/><br/>
 	Weapon <input type='number' name="weapon" value='<?PHP echo $obj->getWeapons()->getAmmos()?>' min='<?PHP echo $obj->getWeapons()->getAmmos()?>'  required/><br/>
 	Shield <input type='number' name="shield" value='<?PHP echo $obj->getShield()?>' min='<?PHP echo $obj->getShield()?>'  required/><br/>
-	<input type="hidden" name='id' value='<?PHP echo $id % $this->_nbP ;?>'>
+	<input type="hidden" name='id' value='<?PHP echo $id;?>'>
 	<input type="hidden" name='depense' value='<?PHP echo $obj->getPP() ;?>'>
 	<input type='submit' name='submit' value='Valid'/>
   </form></div>
@@ -387,7 +394,7 @@ Class Map{
 			{
 				if ($this->_map[$row][$col] == 0)
 					$str = $str.".";
-				else if ($this->_map[$row][$col] == 42)
+				else if ($this->_map[$row][$col] == -1)
 					$str = $str."X";
 				else
 					$str = $str.$this->_map[$row][$col];

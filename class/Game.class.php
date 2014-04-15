@@ -45,13 +45,13 @@ class Game
 			{
 				$flag = 1;
 				$player->setState('active');
-/*				$i = 0;
+				$i = 0;
 				while (($ship = $player->getShip($i)) !== -1)
 				{
 					if ($ship !== 1)
 						$ship->setState('activable');
 					$i++;
-				}*/
+				}
 			}
 			$player->initShips();
 		}
